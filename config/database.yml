@@ -15,10 +15,11 @@ sqlite: &sqlite
 
 postgresql: &postgresql
   adaptor: postgresql
-  database:
-  host:
-  username:
-  password:
+  database: dcdaahrtnnvniv
+  host: ec2-52-86-33-50.compute-1.amazonaws.com
+  port: 5432
+  username: bkfdqrzgwwxqpi 
+  password: b3581da5f8b84c311a7a4c056e06fab01c2d6b7379d64dfe261b4819b2087102
 
 development:
   <<: *default
