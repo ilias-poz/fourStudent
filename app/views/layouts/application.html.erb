@@ -2,11 +2,14 @@
 <html>
   <head>
     <title>FourStudents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+
   </head>
 
   <body>
@@ -15,7 +18,9 @@
     <%= render "shared/header" %>
 
     <main role="main">
+
       <%= yield %>
+
       <%= render "shared/footer" %>
     </main>
   </body>

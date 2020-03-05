@@ -65,5 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Gems that needed to be added manually
 gem 'devise'
-gem 'bootstrap-sass', '~>3.3.6'
+gem 'bootstrap-sass','~>3.3.6'
 gem 'popper_js'
+gem 'webpacker', '~> 4.x'
+gem 'jquery-rails'
