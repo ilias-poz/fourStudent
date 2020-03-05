@@ -12,6 +12,11 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render "shared/header" %>
+
+    <main role="main">
+      <%= yield %>
+      <%= render "shared/header" %>
+    </main>
   </body>
 </html>
