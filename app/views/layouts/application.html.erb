@@ -3,6 +3,7 @@
   <head>
     <title>FourStudents</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= favicon_link_tag asset_path('logo4.png') %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,14 +14,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
     <%= render "shared/header" %>
 
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+
     <main role="main">
-
       <%= yield %>
-
       <%= render "shared/footer" %>
     </main>
   </body>

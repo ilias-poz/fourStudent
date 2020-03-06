@@ -1,4 +1,49 @@
-<footer class="container">
-  <p class="float-right"><a href="#">Back to top</a></p>
-  <p>&copy; 2020 4Students &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-</footer>
+<div class = "footer-basic">
+  <footer class="page-footer font-small blue">
+
+    <!-- Footer Social Media Icons-->
+    <div class = "list-inline social">
+      <li>
+        <%= link_to image_tag("facebookFiltered.png", size: '26x26', class:'social-image'), root_path %>
+      </li>
+      <li >
+        <%= link_to image_tag("twitterFiltered.png", size: '26x26', class:'social-image'), root_path %>
+      </li>
+      <li >
+        <%= link_to image_tag("instagramFiltered.png", size: '26x26', class:'social-image'), root_path %>
+      </li>
+    </div>
+
+    <!-- Footer Page Elements-->
+    <ul class = "list-inline">
+      <li>
+        <a>Privacy</a>
+      </li>
+      <li>
+        <a> | </a>
+      </li>
+      <li>
+        <a>Terms</a>
+      </li>
+      <li>
+        <a> | </a>
+      </li>
+      <li>
+        <a>About</a>
+      </li>
+    </ul>
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+      <ul class = "list-inline">
+        <li>
+          <a>&copy; 2020 4Students</a>
+        </li>
+        <li>
+          <a><%= image_tag("logo4.png", size: '26x26', class:'social-image') %></a>
+        </li>
+      </ul>
+
+    </div>
+  </footer>
+</div>

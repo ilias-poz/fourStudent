@@ -151,9 +151,10 @@ src: local('Metropolis Black Italic'), url('../fonts/Metropolis/Metropolis-Black
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  // padding-top: 3rem;
+  // padding-bottom: 3rem;
   color: #687281;
+  text-decoration: none;
   font-family: "Metropolis Regular";
 }
 
@@ -246,19 +247,42 @@ body {
 }
 
 .navbar-brand {
-  color: #1fd660;
+  list-style-type: none;
+
+  a{
+    color: #1fd660;
+
+
+    &:hover{
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.navbar-nav {
+  list-style-type: none;
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  // color: rgba(255, 255, 255, 0.5);
   font-family: "Metropolis Regular";
 }
 
-/** Darken on hover **/
-.nav-link:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
+.nav-item{
 
+  a {
+    display: block;
+    text-align: center;
+    padding: 20px 30px;
+    text-decoration: none;
+    color: #1fd660;
+  }
+    &:hover{
+      // color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+
+    }
+}
 .round-btn {
   font-family: "Metropolis Bold";
   background-color: #1fd660;
@@ -266,8 +290,8 @@ body {
   color: #1f2d41;
   border-radius: 50rem;
   font-size: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
+  // padding-right: 15px;
+  // padding-left: 15px;
 }
 
 .round-btn:hover {
