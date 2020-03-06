@@ -154,7 +154,7 @@ body {
   // padding-top: 3rem;
   // padding-bottom: 3rem;
 
-  color: #687281;
+  // color: #687281;
   text-decoration: none;
   font-family: "Metropolis Regular";
 }
@@ -166,6 +166,7 @@ body {
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
+  border-bottom: 1px solid #1fd660;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -178,13 +179,12 @@ body {
   height: 32rem;
   background-color: #777;
 }
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
+.carousel-inner > .item {
+  // position: absolute;
+  width: 100%;
+  height: 600px;
 }
+
 
 
 /* MARKETING CONTENT
@@ -240,11 +240,15 @@ body {
     margin-top: 7rem;
   }
 }
-
+// .carousel-inner > .item{
+//   width:100%;
+//   height:400px;
+// }
 /** Custom **/
 .navbar {
   background: #1f2d41;
   font-family: "Metropolis Bold";
+  margin-bottom: 0 !important;
 }
 
 .navbar-brand {
@@ -253,9 +257,9 @@ body {
   a{
     color: #1fd660;
 
-
     &:hover{
       color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
     }
   }
 }
@@ -270,19 +274,20 @@ body {
 }
 
 .nav-item{
-
   a {
     display: block;
     text-align: center;
     padding: 20px 30px;
     text-decoration: none;
     color: #1fd660;
-  }
+
     &:hover{
-      // color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
 
     }
+  }
+
 }
 .round-btn {
   font-family: "Metropolis Bold";

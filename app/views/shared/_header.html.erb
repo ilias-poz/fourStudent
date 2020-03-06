@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand-md fixed-top">
+  <nav class="navbar fixed-top mb-0" >
     <!-- <a class="navbar-brand" href="#">4Students</a> -->
-    <li class = "navbar-brand"><%= link_to '4Students', root_path, class: 'navber-brand' %></li>
+    <li class = "navbar-brand"><%= link_to '4Students', root_path, style: 'font-size: 30px;', data: {turbolinks: false} %></li>
 
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> -->
       <!-- <span class="navbar-toggler-icon"></span> -->
@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <%= link_to 'Home',root_path %>
+          <%= link_to 'Home',root_path, data: {turbolinks: false} %>
         </li>
         <li class="nav-item">
           <%= link_to 'Food', root_path %>
