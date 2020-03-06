@@ -19,9 +19,16 @@
 }
 
 .social{
+  padding-top: 1.75%;
+
+  li{
+    margin-left:  15px;
+    margin-right: 15px;
+  }
+}
+.page-elements{
   padding-top: 1%;
 }
-
 .list-inline{
   padding-left: 0;
   list-style: none;
@@ -29,15 +36,14 @@
   margin-top: 0;
   margin-bottom: 10px;
 
-  li{
 
+  li{
     .social-image{
       opacity: 0.5;
       // margin-left: 10px;
       // margin-right: 10px;
       // margin-bottom: 10px;
     }
-
     a{
       color:#1fd660;
     }
@@ -51,7 +57,7 @@ footer {
   display: block;
   background-color: #1f2d41;
   text-align: center;
-  position: fixed;
+  // position: fixed;
     div {
       color: #1fd660;
 
