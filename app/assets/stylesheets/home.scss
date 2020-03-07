@@ -21,11 +21,9 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  // padding-top: 3rem;
-  // padding-bottom: 3rem;
-
-  // color: #687281;
-  text-decoration: none;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #687281;
   font-family: "Metropolis Regular";
 }
 
@@ -36,7 +34,6 @@ body {
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
-  border-bottom: 1px solid #1fd660;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -49,12 +46,13 @@ body {
   height: 32rem;
   background-color: #777;
 }
-.carousel-inner > .item {
-  // position: absolute;
-  width: 100%;
-  height: 600px;
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
 }
-
 
 
 /* MARKETING CONTENT
@@ -110,51 +108,27 @@ body {
     margin-top: 7rem;
   }
 }
-// .carousel-inner > .item{
-//   width:100%;
-//   height:400px;
-// }
+
 /** Custom **/
 .navbar {
   background: #1f2d41;
   font-family: "Metropolis Bold";
-  margin-bottom: 0 !important;
 }
 
 .navbar-brand {
-  list-style-type: none;
-
-  a{
-    color: #1fd660;
-
-    &:hover{
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-    }
-  }
+  color: #1fd660;
 }
 
-.navbar-nav {
-  list-style-type: none;
+.nav-link {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Metropolis Regular";
 }
 
-.nav-item{
-  a {
-    display: block;
-    text-align: center;
-    padding: 20px 30px;
-    text-decoration: none;
-    font-family: "Metropolis Regular";
-    color: rgba(255, 255, 255, 0.5);
-
-    &:hover{
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-
-    }
-  }
-
+/** Darken on hover **/
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
+
 .round-btn {
   font-family: "Metropolis Bold";
   background-color: #1fd660;
@@ -162,8 +136,8 @@ body {
   color: #1f2d41;
   border-radius: 50rem;
   font-size: 15px;
-  // padding-right: 15px;
-  // padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .round-btn:hover {
