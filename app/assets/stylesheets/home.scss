@@ -4,14 +4,14 @@
 
 @font-face {
   font-family: 'Metropolis Regular';
-  src:font_path('Metropolis-Regular.woff') format('woff');
+  src:font-url('Metropolis-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Metropolis Bold';
-  src:font_path('Metropolis-Bold.woff') format('woff');
+  src:font-url('Metropolis-Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
