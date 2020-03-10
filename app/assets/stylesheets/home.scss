@@ -36,7 +36,6 @@ body {
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
-  border-bottom: 1px solid #1fd660;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -110,10 +109,7 @@ body {
     margin-top: 7rem;
   }
 }
-// .carousel-inner > .item{
-//   width:100%;
-//   height:400px;
-// }
+
 /** Custom **/
 .navbar {
   background: #1f2d41;
