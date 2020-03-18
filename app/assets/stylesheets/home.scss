@@ -170,6 +170,19 @@ body {
   // padding-right: 15px;
   // padding-left: 15px;
 }
+.round-sign-up-btn {
+  font-family: "Metropolis Bold";
+  background-color: #ed4807;
+  border-color: #ed4807;
+  color: #1f2d41;
+  border-radius: 50rem;
+  font-size: 15px;
+}
+
+.round-sign-up-btn:hover {
+  background-color: #ed4807;
+  border-color: #1f2d41;
+}
 
 .round-btn:hover {
   background-color: #009476;

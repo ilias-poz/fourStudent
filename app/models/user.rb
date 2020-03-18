@@ -13,7 +13,7 @@ class User < ApplicationRecord
       if ApplicationController.helpers.Validate(email)
 
       else
-        errors.add(:email, "Is not valid")
+        errors.add(:email, "is not valid. It has to be a valid UK university domain")
       end
     end
 end
