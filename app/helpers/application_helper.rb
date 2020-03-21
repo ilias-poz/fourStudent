@@ -13,14 +13,17 @@ module ApplicationHelper
     return ukdomains
   end
 
-  def Validate(user_domain)
+  def Validate(user_email)
+    puts "user_email: "+user_email
+    user_domain = user_email[user_email.index('@')+1..user_email.length-1]
+
+    puts "user_domain: "+user_domain
     domains = getUKUniversities()
-    checkDomain = false
     for i in 0..domains.length-1 do
       if domains[i].include?(user_domain)
         return true
       end
     end
-    return checkDomain
+    return false
   end
 end
