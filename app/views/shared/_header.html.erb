@@ -31,7 +31,7 @@
         <% if user_signed_in? %>
             <%= link_to "Sign Out", destroy_user_session_path, :method => :delete,data: {turbolinks: false},class:'btn btn-outline-success m-5 my-sm-0 round-btn', style: "float:right; margin: 5px !important;" %>
         <% else %>
-          <%= button_to "Login", new_user_session_path, :method => :get, data: {turbolinks: false}, class:'btn btn-outline-success m-5 my-sm-0 round-btn', style: "float:right; margin: 5px !important;" %>
+          <%= link_to "Login", new_user_session_path, :method => :get, data: {turbolinks: false}, class:'btn btn-outline-success m-5 my-sm-0 round-btn', style: "float:right; margin: 5px !important;" %>
         <%end%>
       </form>
     </div>
