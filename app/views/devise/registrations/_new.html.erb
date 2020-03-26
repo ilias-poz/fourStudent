@@ -1,7 +1,10 @@
 
 <h2 class = "form-header">Sign up</h2>
 <script>
-  const url = 'http://universities.hipolabs.com/search?country=united kingdom'
+  /*const url = 'http://universities.hipolabs.com/search?country=united kingdom'
+=======
+  const url = '//universities.hipolabs.com/search?country=united kingdom'
+>>>>>>> 6b892cbd43c477e6fe1215a683e7733825e123d7
   $.ajax({
     url: url,
     success: function(result){
@@ -21,18 +24,18 @@
       })
 
     }
-  })
+  })*/
    $(document).ready(function() {
 
     //form has id new_user, this is the name given by devise
      $('#new_user').validate({
       rules : {
-        'user[email]': {required: true, email: true, domains: true},
+        'user[email]': {required: true, email: true},
         'user[password]': {required: true,minlength: 6},
         'user[password_confirmation]': {required: true, equalTo: '#sign_up_password'}
       },
       messages: {
-        'user[email]': {required: 'This field is required', domains: 'Needs to be valid UK university domain' },
+        'user[email]': {required: 'This field is required' },
         'user[password]': {required: 'Password is required'},
         'user[password_confirmation]': {required: 'Password needs to be confirmed', equalTo: 'Passwords do not match'}
       }
