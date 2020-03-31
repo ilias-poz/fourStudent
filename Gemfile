@@ -72,3 +72,4 @@ gem 'jquery-rails'
 gem 'httparty'
 gem 'simple_form'
 gem 'jquery-validation-rails'
+gem "font-awesome-rails"

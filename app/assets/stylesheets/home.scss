@@ -37,7 +37,6 @@ body {
 .carousel {
   margin-bottom: 4rem;
   background-color: #1f2d41;
-  border-bottom: 2px solid #1fd660;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -156,7 +155,7 @@ body {
 
 .item-carousel-image{
   height: 100%;
-  filter: blur(3px);
+  filter: blur(4px);
   background-repeat: no-repeat;
   background-size: cover;
 }

@@ -14,7 +14,7 @@ sqlite: &sqlite
   database: db/<%= Rails.env%>.sqlite3
 
 postgresql: &postgresql
-  adaptor: postgresql
+  adapter: postgresql
   database: dcdaahrtnnvniv
   host: ec2-52-86-33-50.compute-1.amazonaws.com
   port: 5432
