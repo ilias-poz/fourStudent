@@ -3,12 +3,14 @@
   <head>
     <title>FourStudents</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <%= favicon_link_tag asset_path('logo4.png') %>
 
     <!-- Add jquery validator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,7 +26,11 @@
 
     <main role="main">
       <%= yield %>
-      <%= render "shared/footer" %>
+
     </main>
+      <%= render "shared/footer" %>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   </body>
 </html>

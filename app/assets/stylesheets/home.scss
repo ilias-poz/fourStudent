@@ -37,6 +37,7 @@ body {
 .carousel {
   margin-bottom: 4rem;
   background-color: #1f2d41;
+  box-shadow: 0 -4px 10px -6px black !important; 
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -116,7 +117,9 @@ body {
   background: #1f2d41;
   font-family: "Metropolis Bold";
   margin-bottom: 0 !important;
-  border-radius: 0px;
+  border-radius: 0px !important;
+  box-shadow: 0 4px 10px -2px #000000 !important; 
+  text-decoration: none !important;
 }
 
 .navbar-brand {

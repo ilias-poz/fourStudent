@@ -20,7 +20,7 @@
       <div class="item">
         <div class="item-carousel-image" style = "background-image: url('/assets/gradient2.jpg');"></div>
         <div class="carousel-caption">
-          <h3>Entertainment <%= fa_icon "child"%></h3>
+          <h3 class = "animated fadeIn">Entertainment <%= fa_icon "child"%></h3>
           <p>Entertain your self!</p>
         </div>
       </div>
@@ -56,7 +56,7 @@
 
 
 <!-- Sign Up Form -->
-<div class = 'container container-form mr-35 ml-35' id='sign-up-form' >
+<div data-aos = "fade-up" data-aos-delay = "200" data-aos-duration = "1000" class = 'container container-form mr-35 ml-35' id='sign-up-form' >
   <%= render "devise/registrations/new"%>
 </div>
 
