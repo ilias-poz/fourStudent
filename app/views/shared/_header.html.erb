@@ -1,12 +1,10 @@
 <header>
-  <nav class="navbar navbar-expand-md fixed-top" >
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      
+  <nav class="navbar fixed-top" >
       <% if user_signed_in? %>
         <li class = "navbar-brand">
           <%= link_to '4Students', main_path, style: 'font-size: 30px;', data: {turbolinks: false} %>
         </li>
-        <li class = "nav-item">
+        <li class = "nav-item" style = "padding-left: 15px;">
           <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, data: {turbolinks: false}, style: "float:right;" %>
         </li>
 
@@ -21,7 +19,5 @@
           <%= link_to "Login", new_user_session_path, :method => :get, data: {turbolinks: false}, style: "float:right;" %>
         </li>       
       <% end %>
-      
-    </div>
   </nav>
 </header>

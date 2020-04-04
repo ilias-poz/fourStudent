@@ -102,6 +102,7 @@
     bottom: 0;
     outline: 0;
     border: 0px;   
+
     i{ 
         color: #f3f3f3;
         -o-transition: all .2s linear;
@@ -144,9 +145,14 @@
     #sidebar.active {
         margin-left: 0;
     }
-    #sidebarCollapse span {
-        display: none;
+    .sidebar-button-rotate{
+        -o-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+        -webkit-transition: all .2s linear;
+        transition: all .2s linear;
+        transform: rotate(45deg);
     }
+
 }
 
 .profile-userpic{

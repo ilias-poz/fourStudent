@@ -122,10 +122,8 @@ body {
 }
 
 .navbar-brand {
-
   a{
     color: #1fd660;
-
 
     &:hover{
       text-decoration: none;
@@ -142,8 +140,9 @@ body {
 .nav-item{
   a {
     display: block;
+    position: relative;
     text-align: center;
-    padding: 20px 30px;
+    padding: 20px 50px;
     text-decoration: none;
     font-family: "Metropolis Regular";
     color: rgba(255, 255, 255, 0.5);
