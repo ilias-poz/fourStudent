@@ -16,4 +16,7 @@ class HomeController < ApplicationController
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def main
+  end
 end

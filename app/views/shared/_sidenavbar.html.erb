@@ -1,0 +1,45 @@
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <div class = 'profile-userpic'>
+            <div data-aos = 'fade-in'>
+                <%= image_tag('gradient3', size: '128x128')%>
+            </div>
+            <p style = "font-family: Metropolis Regular !important;">Dummy Name</p>   
+        </div>
+    </div>
+    <ul class="list-unstyled components" style = "text-align: center !important;">
+
+        <li>
+            <%= link_to root_path, class: 'btn sidebar-btn', style: 'background-color: #1853ab;' do %>
+                <%= fa_icon('shopping-cart 2x')%>
+                <b>Food</b>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to root_path, class: 'btn sidebar-btn', style: 'background-color: #1f4e94;' do %>
+                <%= fa_icon('child 2x')%>
+                <b>Entertainment</b>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to root_path, class: 'btn sidebar-btn', style: 'background-color: #23477d;' do %>
+                <%= fa_icon('plus-square 2x')%>
+                <b>Support</b>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to root_path, class: 'btn sidebar-btn', style: 'background-color: #233d63;' do %>
+                <%= fa_icon('comment 2x')%>
+                <b>Lobby Chat</b>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to root_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;' do %>
+                <%= fa_icon('phone 2x')%>
+                <b>Contact Us</b>
+            <% end %>
+        </li>
+    </ul>
+
+</nav>

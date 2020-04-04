@@ -1,19 +1,26 @@
 <header>
   <nav class="navbar navbar-expand-md fixed-top" >
-    <!-- <a class="navbar-brand" href="#">4Students</a> -->
-    <li class = "navbar-brand"><%= link_to '4Students', root_path, style: 'font-size: 30px;', data: {turbolinks: false} %></li>
-
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> -->
-      <!-- <span class="navbar-toggler-icon"></span> -->
-    <!-- </button> -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <% if user_signed_in? %>
-            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete,data: {turbolinks: false},class:'btn btn-outline-success m-5 my-sm-0 round-btn', style: "float:right; margin: 5px !important;" %>
-        <% else %>
-          <li class = "nav-item">
-            <%= link_to "Login", new_user_session_path, :method => :get, data: {turbolinks: false}, style: "float:right;" %>
-          </li>
-        <% end %>
+      
+      <% if user_signed_in? %>
+        <li class = "navbar-brand">
+          <%= link_to '4Students', main_path, style: 'font-size: 30px;', data: {turbolinks: false} %>
+        </li>
+        <li class = "nav-item">
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, data: {turbolinks: false}, style: "float:right;" %>
+        </li>
+
+        <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
+          <%= fa_icon('times 2x')%>
+        </button>
+      <% else %>
+      <li class = "navbar-brand">
+        <%= link_to '4Students', root_path, style: 'font-size: 30px;', data: {turbolinks: false} %>
+      </li>
+        <li class = "nav-item">
+          <%= link_to "Login", new_user_session_path, :method => :get, data: {turbolinks: false}, style: "float:right;" %>
+        </li>       
+      <% end %>
       
     </div>
   </nav>

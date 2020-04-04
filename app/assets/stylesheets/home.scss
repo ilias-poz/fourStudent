@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Metropolis Bold';
-  src:font-url('Metropolis-Bold.woff') format('woff');
+  src: font-url('Metropolis-Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,14 +19,12 @@
 /* GLOBAL STYLES - Using Carousel
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
 body {
   // padding-top: 3rem;
   // padding-bottom: 3rem;
-
+  font-family: "Metropolis Regular" !important;
   background-color: #172539 !important ;
   text-decoration: none;
-  font-family: "Metropolis Regular";
 }
 
 
@@ -120,17 +118,19 @@ body {
   border-radius: 0px !important;
   box-shadow: 0 4px 10px -2px #000000 !important; 
   text-decoration: none !important;
+  list-style-type: none;
 }
 
 .navbar-brand {
-  list-style-type: none;
 
   a{
     color: #1fd660;
 
+
     &:hover{
-      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      
     }
   }
 }
