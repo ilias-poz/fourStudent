@@ -1,41 +1,35 @@
 
 <h2 class = "form-header">Sign up</h2>
 <script>
-  /*const url = 'http://universities.hipolabs.com/search?country=united kingdom'
-=======
-  const url = '//universities.hipolabs.com/search?country=united kingdom'
->>>>>>> 6b892cbd43c477e6fe1215a683e7733825e123d7
-  $.ajax({
-    url: url,
-    success: function(result){
-      $.validator.addMethod('domains',function(value){
-        var domains = []
-        for (var i in result){
-          domains.push(result[i].domains)
-        }
 
-        for (var i in domains){
-          if (domains[i].includes(value.slice(value.indexOf('@')+1))){
-            return true
-          }
 
-        }
-        return false
-      })
 
-    }
-  })*/
    $(document).ready(function() {
+     $.validator.addMethod('domains',function(){
+       var input = $('#user_email').val()
+       //Hidden field which stores the array of all the domains (fetched from Ruby helper on server-side)
+       var valid_domains = $('#universities').val().split(" ") //hidden_field val is a string separated by spaces so split to make it array
+       var inputted_domain = input.slice(input.indexOf('@')+1,input.length)
+       if (valid_domains.includes(inputted_domain)){
+         return true
+       }
+       return false
+     })
+
+
+
+
+
 
     //form has id new_user, this is the name given by devise
      $('#new_user').validate({
       rules : {
-        'user[email]': {required: true, email: true},
+        'user[email]': {required: true, email: true, domains: true},
         'user[password]': {required: true,minlength: 6},
         'user[password_confirmation]': {required: true, equalTo: '#sign_up_password'}
       },
       messages: {
-        'user[email]': {required: 'This field is required' },
+        'user[email]': {required: 'This field is required', domains: 'Valid UK university domain required. E.g. username@surrey.ac.uk for Surrey University' },
         'user[password]': {required: 'Password is required'},
         'user[password_confirmation]': {required: 'Password needs to be confirmed', equalTo: 'Passwords do not match'}
       }
@@ -51,10 +45,16 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-group">
+
     <%= f.label :email, class:'form-label' %><br />
     <!-- validator works with name instead of id -->
     <%= f.email_field :email, autocomplete: "email" ,class: 'form-control' %>
   </div>
+  <!-- Hidden field gets UK university for javascript validation -->
+  <div class="form-group">
+    <%= f.hidden_field :universities, id: 'universities', value: ApplicationController.helpers.getUKUniversities() %>
+  </div>
+
 
   <div class="form-group">
     <%= f.label :password, class:'form-label' %>
