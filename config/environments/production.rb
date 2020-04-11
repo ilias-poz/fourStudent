@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.web_socket_server_url = "wss://murmuring-eyrie-91826.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://murmuring-eyrie-91826.herokuapp.com', 'http://murmuring-eyrie-91826.herokuapp.com']
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -22,7 +23,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass

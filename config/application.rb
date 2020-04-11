@@ -12,6 +12,12 @@ module FourStudents
     config.load_defaults 5.2
     config.assets.initialize_on_precompile = false
 
+    #Was not displaying properly so this fixed it
+    config.active_record.default_timezone = :local
+    config.active_record.time_zone_aware_attributes = false
+
+
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

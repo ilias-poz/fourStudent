@@ -1,0 +1,14 @@
+// Place all the styles related to the chatmessages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.alert.alert-success{
+  width:100%;
+  margin-right: 500px;
+  text-align: center;
+}
+
+#chatbox{
+  height: 250px;
+  border-radius: 25px grey;
+  overflow-y: scroll;
+}
