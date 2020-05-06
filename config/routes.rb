@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/chatmessages', to: 'chatmessages#show'
+
+  get '/contact', to: 'messages#new'
+  post 'contact/create', to: 'messages#create'
+  
   authenticated :user do
     root to: "home#main"
   end

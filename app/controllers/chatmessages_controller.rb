@@ -4,9 +4,6 @@ class ChatmessagesController < ApplicationController
       @chatmessage = ChatMessage.new(message_params)
       @chatmessage.user = current_user
       @chatmessage.save
-
-      
-
   end
   def messages
     @chatmessages = ChatMessage.all

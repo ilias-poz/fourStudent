@@ -73,3 +73,6 @@ gem 'httparty'
 gem 'simple_form'
 gem 'jquery-validation-rails'
 gem "font-awesome-rails"
+gem 'mailgun-ruby', '~>1.1.6'
+gem "figaro"
+
