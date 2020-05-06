@@ -1,9 +1,6 @@
 
 <h2 class = "form-header">Sign up</h2>
 <script>
-
-
-
    $(document).ready(function() {
      $.validator.addMethod('domains',function(){
        var input = $('#user_email').val()
@@ -43,7 +40,7 @@
 
     <%= f.label :email, class:'form-label' %><br />
     <!-- validator works with name instead of id -->
-    <%= f.email_field :email, autocomplete: "email" ,class: 'form-control' %>
+    <%= f.email_field :email, autocomplete: "email" ,class: 'form-control', style:'color: white;' %>
   </div>
   <!-- Hidden field gets UK university for javascript validation -->
   <div class="form-group">
@@ -56,12 +53,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, id: 'sign_up_password', autocomplete: "new-password", class: 'form-control' %>
+    <%= f.password_field :password, id: 'sign_up_password', autocomplete: "new-password", class: 'form-control', style:'color: white;' %>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation, class:'form-label' %><br />
-    <%= f.password_field :password_confirmation, id: 'sign_up_password_confirmation', autocomplete: "new-password", class: 'form-control' %>
+    <%= f.password_field :password_confirmation, id: 'sign_up_password_confirmation', autocomplete: "new-password", class: 'form-control', style:'color: white;' %>
   </div>
 
   <div class="actions">

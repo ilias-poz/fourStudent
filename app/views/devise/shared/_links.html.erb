@@ -5,11 +5,11 @@
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <!-- button_to uses post method by default, so have to change to get to not get routing error -->
   <!-- instead of getting users/sign_up which is an ugly form, it gets the sign-up-form on front page -->
-  <%= button_to "Sign up", '/#sign-up-form', method: :get ,class: 'round-sign-up-btn', style: 'margin-bottom: 20px;' %><br />
+  <% button_to "Sign up", '/#sign-up-form', method: :get ,class: 'round-sign-up-btn', style: 'margin-bottom: 20px;' %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'devise-links' %><br />
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'devise-links' %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
