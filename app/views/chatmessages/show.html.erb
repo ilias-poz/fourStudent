@@ -1,26 +1,30 @@
-<div class="container-fluid">
+<div class="container container-form">
+
   <div class="row">
-    <div class="alert alert-success">
+    <div class="form-header">
       <h1 class="alert-heading">Chat Room</h1>
       <p>Go on! Socialize</p>
     </div>
   </div>
+
   <div class="row">
-    <div class="well" id="chatbox">
+    <div class="form-control" id="chatbox", style = "height: 500px; color:white">
       <% @chatmessages.each do |chatmessage| %>
-        <%=render 'chat_messages/chat_message', chat_message: chatmessage %>
+        <%= render 'chat_messages/chat_message', chat_message: chatmessage %>
       <% end %>
     </div>
+  </div>
+  <div class = "row" style = "margin-top: 10px;">
+
     <div class="input-group mb-3" style="float:left;">
     <%= simple_form_for(@chatmessage, url: chatmessages_create_url, remote: true) do |f| %>
-      <%= f.text_field :message, placeholder: 'Say something', class: 'form-control' %>
+    <%= f.text_field :message, required: true, placeholder: 'Say something', class: 'form-control', style:'color:white' %>
     </div>
+
     <div class="input-group-append" style="float:left;">
       <%= f.submit "Send", class: "btn btn-secondary" %>
     </div>
 
     <% end %>
-    </div>
-
   </div>
 </div>
