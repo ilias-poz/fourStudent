@@ -1,7 +1,6 @@
-<div >
-
+<div>
     <span style = "color:green"><%= chat_message.user.email %>:</span>
-    <%=chat_message.message%>
+    <%= chat_message.message%>
     <% chat_message.created_at.to_s(:db)%> 
     <br>
     <br>

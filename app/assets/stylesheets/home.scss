@@ -108,6 +108,9 @@ body {
   .featurette-heading {
     margin-top: 7rem;
   }
+  .navbar{
+    width: 100%;
+  }
 }
 
 /** Custom **/
@@ -167,9 +170,9 @@ body {
   background-color: #1fd660;
   border-color: #1fd660;
   color: #1f2d41;
-  border-radius: 50rem;
+  border-radius: 5px;
   font-size: 15px;
-  margin-top: 10px;
+  outline: none;
   height: 30px;
 
   // padding-right: 15px;

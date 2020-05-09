@@ -8,9 +8,7 @@
           <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, data: {turbolinks: false}, style: "float:right;" %>
         </li>
 
-        <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
-          <%= fa_icon('times 2x')%>
-        </button>
+        
       <% else %>
       <li class = "navbar-brand">
         <%= link_to '4Students', root_path, style: 'font-size: 30px;', data: {turbolinks: false} %>

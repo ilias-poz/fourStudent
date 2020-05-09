@@ -36,7 +36,7 @@
 
     a{
         box-shadow: 0 4px 10px -2px #000000; 
-        border-radius: 25px;
+        border-radius: 5px;
         color: #f3f3f3;
         width: 100% !important;
         height: 100% !important;
@@ -96,13 +96,16 @@
 
 .sidebar-button-rotate{
     background: transparent;
-    position: absolute;
-    top: 0;  
-    right: 0;
+    // position: absolute;  
+    top: 0;
+    margin-left: 5px;
     bottom: 0;
     outline: 0;
     border: 0px;   
 
+    :hover{
+        box-shadow: -5px 0px 0px 0px white;
+    }
     i{ 
         color: #f3f3f3;
         -o-transition: all .2s linear;
@@ -110,15 +113,18 @@
         -webkit-transition: all .2s linear;
         transition: all .2s linear;
     }
+    
    
 }
+
 .sidebar-button-rotate.rotate{
 
     i{
-        -o-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
+        -o-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+        
     }
     
 }
@@ -150,7 +156,7 @@
         -moz-transition: all .2s linear;
         -webkit-transition: all .2s linear;
         transition: all .2s linear;
-        transform: rotate(45deg);
+        transform: rotateY(-180deg);
     }
 
 }
@@ -160,9 +166,11 @@
     text-align: center;
 
     img{
-        -webkit-border-radius: 50% !important;
-        -moz-border-radius: 50% !important;
-        border-radius: 50% !important;
+        -webkit-border-radius: 5px !important;
+        -moz-border-radius: 5px !important;
+        border-radius: 5px !important;
+        box-shadow: 0 4px 10px -2px #000000; 
+;
     }
 }
 

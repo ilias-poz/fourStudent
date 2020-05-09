@@ -1,27 +1,33 @@
-<div class = 'container container-form ml-35 mr-35'>
-    <h1 class = "form-header contact-header">Contact Us</h1>
-    <div id = 'contact'>
-        <%= form_for @message, url: contact_create_path, remote: true do |f| %>
-        
+<div id = 'contact-page' class = 'container container-form ml-35 mr-35'>
+    <div class = 'form-header wrapper'>
+        <h1 class = "form-header contact-header">Contact Us</h1> 
+        <div class = "alert-heading-icon" style = "left: 0;">
+            
+        </div>
+    </div>
+        <div id = 'contact'>
+            <%= form_for @message, url: contact_create_path, remote: true do |f| %>
+            
 
-        <%= f.label :name ,class: 'form-label'%>
-        <%= f.text_field  :name, required: true, class: "form-control", 
-                        style:'color: white;'%>
-        <br>
+            <%= f.label :name ,class: 'form-label'%>
+            <%= f.text_field  :name, required: true, class: "form-control", 
+                            style:'color: white;'%>
+            <br>
 
-        <%= f.label :email ,class: 'form-label'%>
-        <%= f.text_field :email, required: true, class: "form-control", 
-                        style:'color: white;'%>
-        <br>
+            <%= f.label :email ,class: 'form-label'%>
+            <%= f.text_field :email, required: true, class: "form-control", 
+                            style:'color: white;'%>
+            <br>
 
-        <%= f.label 'Message' ,class: 'form-label'%>
-        <%= f.text_area :body, rows: 8, cols: 40, required: true, class: "form-control",
-                        style:'color: white;'%>
-        <br>
-        <%= f.submit 'Send Message', class: 'round-btn', style: 'margin-bottom: 10px;' %>
+            <%= f.label 'Message' ,class: 'form-label'%>
+            <%= f.text_area :body, rows: 8, cols: 40, required: true, class: "form-control",
+                            style:'color: white; background-image: url();'%>
+            <br>
+            <%= f.submit 'Send Message', class: 'round-btn', style: 'margin-bottom: 10px;' %>
 
-    <% end %>
-    <div class="col-md-6" id="flash-message">
-        <%= render 'shared/flash' %>
+        <% end %>
+        <div class="col-md-6" id="flash-message">
+            <%= render 'shared/flash' %>
+        </div>
     </div>
 </div>

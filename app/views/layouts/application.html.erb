@@ -32,6 +32,9 @@
       <% if user_signed_in? %>
         <div class = "wrapper">
           <%= render 'shared/sidenavbar' %>
+          <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
+            <%= fa_icon('long-arrow-left 2x')%>
+          </button>
           <%= yield %>
         </div>
       <% else %>
