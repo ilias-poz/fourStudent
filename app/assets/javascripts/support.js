@@ -32,7 +32,7 @@ function getLocation() {
       var marker = new google.maps.Marker({
         position: pos,
         map: map,
-        icon: "http://maps.google.com/mapfiles/ms/micons/blue.png"
+        icon: "https://maps.google.com/mapfiles/ms/micons/blue.png"
       })
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
@@ -56,8 +56,8 @@ function getNearByPlaces(pos) {
   console.log("getNearByPlaces:" + pos.lat + "," + pos.lng);
   request = {
     location: pos,
-    radius: '500',
-    query: ['hospital','doctor']
+    radius: '200',
+    query: 'hospital'
   };
 
   service = new google.maps.places.PlacesService(map);
@@ -90,7 +90,7 @@ function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-    icon: "http://maps.google.com/mapfiles/ms/micons/red.png"
+    icon: "https://maps.google.com/mapfiles/ms/micons/red.png"
   });
 
   google.maps.event.addListener(marker, 'click', function() {
