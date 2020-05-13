@@ -17,8 +17,4 @@ Rails.application.routes.draw do
   unauthenticated :user do
     root "home#home"
   end
-
-
-
-
 end

@@ -20,11 +20,16 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 body {
-  // padding-top: 3rem;
-  // padding-bottom: 3rem;
   font-family: "Metropolis Regular" !important;
   background-color: #172539 !important ;
   text-decoration: none;
+}
+
+#main_content{
+  height: 100%;
+  flex: 1;
+  overflow: auto;
+  display: flex;
 }
 
 

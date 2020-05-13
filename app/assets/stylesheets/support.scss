@@ -7,4 +7,15 @@
     width: 600px;
     display: block;
     margin: 5%;
+    border: 2px solid #1fd660;
+}
+
+@media(max-width: 768px){
+
+    #map{
+        height: 600px;
+        width: 90vw;
+        display: block;
+        margin-top: 10%;
+    }
 }

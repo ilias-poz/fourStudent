@@ -75,4 +75,4 @@ gem 'jquery-validation-rails'
 gem "font-awesome-rails"
 gem 'mailgun-ruby', '~>1.1.6'
 gem "figaro"
-
+gem 'google_places'

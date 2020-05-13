@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FourStudents</title>
+    <title>4Students</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= favicon_link_tag asset_path('logo4.png') %>
 
@@ -33,10 +33,9 @@
       <% if user_signed_in? %>
         <div class = "wrapper">
           <%= render 'shared/sidenavbar' %>
-          <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
-            <%= fa_icon('long-arrow-left 2x')%>
-          </button>
-          <%= yield%>
+          <div id = main_content>
+            <%= yield%>
+          </div>
         </div>
       <% else %>
         <%= yield %>
@@ -47,7 +46,6 @@
 
     
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&callback=initMap"></script>  
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&libraries=places"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&libraries=places&callback=initMap"></script>  
   </body>
 </html>

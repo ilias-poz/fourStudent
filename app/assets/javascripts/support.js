@@ -1,57 +1,101 @@
-// $(document).ready(function(){
+var map;
+var service;
+var infowindow;
+var pos;
+var request;
+var place;
 
-//   // $('#map').ready(function(){
-//   //   var map = new google.maps.Map( this, {
-//   //     center: {lat: -34.397, lng: 150.644},
-//   //     zoom: 8
-//   //   });
-//   // })
-//     var map;
-//       function initMap() {
-//         map = new google.maps.Map(document.getElementById('map'), {
-//           center: {lat: -34.397, lng: 150.644},
-//           zoom: 8
-//         });
-//       }
-// });
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: 34.7589,
+      lng: 32.4156
+    },
+    zoom: 15
+  });
+  infoWindow = new google.maps.InfoWindow();
 
-function initMap(lat, lng) {
-  var myCoords = new google.maps.LatLng(-34.397, 150.644);
-  var mapOptions = {
-  center: myCoords,
-  zoom: 15
+  getLocation();
+  // getNearByPlaces();
+  // callback();
+}
+
+function getLocation() {
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      console.log("getLocation:" + pos.lat + "," + pos.lng);
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        icon: "http://maps.google.com/mapfiles/ms/micons/blue.png"
+      })
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      infoWindow.open(map);
+      map.setCenter(pos);
+      // getNearByPlaces(pos);
+    }, function() {
+      console.log("calling handleLocationError(true)");
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    console.log("calling handleLocationError(false)")
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+
+  infowindow = new google.maps.InfoWindow();
+}
+
+function getNearByPlaces(pos) {
+  console.log("getNearByPlaces:" + pos.lat + "," + pos.lng);
+  request = {
+    location: pos,
+    radius: '500',
+    query: ['hospital','doctor']
   };
-  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+  service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, callback);
+}
 
-  var infoWindow = new google.maps.InfoWindow;
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("callback received " + results.length + " results");
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < results.length; i++) {
+      console.log(JSON.stringify(results[i]));
+      place = results[i];
+      var mark = createMarker(results[i]);
+      bounds.extend(mark.getPosition());
+    }
+    map.fitBounds(bounds);
+  } else console.log("callback.status=" + status);
+}
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found :)');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
+function createMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location,
+    icon: "http://maps.google.com/mapfiles/ms/micons/red.png"
+  });
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+  return marker;
 }

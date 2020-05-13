@@ -1,12 +1,11 @@
 .container-form{
   // border: 3px solid #1fd660;
+  width: 100%;
   margin-bottom: auto;
   margin-top: 5%;
   border-radius: 5px;
-  width: 50% !important;
-  // background-color: #1f2d41;
-  // text-align: center;
-  // box-shadow: 0 4px 10px -2px #000000; 
+  position: relative;
+  
 }
   .form-header{
     font-family: "Metropolis Bold";
@@ -16,10 +15,10 @@
   .form-control{
     background-color: #1f2d41 !important;
     border: none !important;
-    width: 100% !important;
-    resize:none;
+    resize: none;
     box-shadow: none !important;
   }
+
   .form-label{
     font-family: "Metropolis Regular";
     color: #1fd660;
@@ -34,5 +33,12 @@
   .form-field{
     font-family: "Metropolis Regular";
     color: #1fd660;
+  }
+
+  @media(max-width: 768px){
+    .container-form{
+      margin-right: 5% !important;
+      margin-left: 5% !important;
+    }
   }
 
