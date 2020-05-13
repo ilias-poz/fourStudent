@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   post 'chatmessages/create', to: 'chatmessages#create'
   devise_for :users
 
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'messages#new'
   post 'contact/create', to: 'messages#create'
+
+  get '/support', to: 'support#show'
   
   authenticated :user do
     root to: "home#main"

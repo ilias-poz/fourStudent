@@ -8,7 +8,7 @@
     <!-- Add jquery validator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-
+    
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <%= csrf_meta_tags %>
@@ -18,6 +18,7 @@
 
     <%= stylesheet_link_tag    :application, media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
   </head>
 
@@ -35,16 +36,18 @@
           <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
             <%= fa_icon('long-arrow-left 2x')%>
           </button>
-          <%= yield %>
+          <%= yield%>
         </div>
       <% else %>
-        <%= yield%>
+        <%= yield %>
       <% end %>
     </main>
 
     <%= render "shared/footer" %>
 
-
+    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&callback=initMap"></script>  
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&libraries=places"></script>
   </body>
 </html>
