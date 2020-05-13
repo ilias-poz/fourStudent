@@ -38,7 +38,7 @@ function getLocation() {
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
       map.setCenter(pos);
-      // getNearByPlaces(pos);
+      getNearByPlaces(pos);
     }, function() {
       console.log("calling handleLocationError(true)");
       handleLocationError(true, infoWindow, map.getCenter());
