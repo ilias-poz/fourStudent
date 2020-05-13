@@ -137,7 +137,7 @@ function getNearByPlaces(pos) {
   console.log("getNearByPlaces:" + pos.lat + "," + pos.lng);
   request = {
     location: pos,
-    radius: 500,
+    radius: 300,
     type: 'hospital'
   };
 
