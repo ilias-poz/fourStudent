@@ -32,7 +32,7 @@ function getLocation() {
       var marker = new google.maps.Marker({
         position: pos,
         map: map,
-        icon: "https://maps.google.com/mapfiles/ms/micons/blue.png"
+        icon: "http://maps.google.com/mapfiles/ms/micons/blue.png"
       })
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
@@ -90,7 +90,7 @@ function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-    icon: "https://maps.google.com/mapfiles/ms/micons/red.png"
+    icon: "http://maps.google.com/mapfiles/ms/micons/red.png"
   });
 
   google.maps.event.addListener(marker, 'click', function() {
