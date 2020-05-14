@@ -137,18 +137,19 @@ function getNearByPlaces(pos) {
   console.log("getNearByPlaces:" + pos.lat + "," + pos.lng);
   request = {
     location: pos,
-    radius: 300,
+    radius: 200,
     type: 'hospital'
   };
 
   service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);
-
 }
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
+
     console.log("callback received " + results.length + " results");
+
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < results.length; i++) {
       console.log(JSON.stringify(results[i]));
@@ -157,7 +158,33 @@ function callback(results, status) {
       bounds.extend(mark.getPosition());
     }
     map.fitBounds(bounds);
-  } else console.log("callback.status=" + status);
+
+    for (var i = 0; i < results.length; i++){
+      place = results[i];
+      request = {
+        placeId: place.place_id,
+        fields: ['name', 'international_phone_number', 'geometry']
+      }
+      service.getDetails(request, function(place, status){
+        if (status == google.maps.places.PlacesServiceStatus.OK){
+          var result = '';
+          result += '<li class = "place-content">'
+          result += '<div class = "place-name"> Name: <p class = "place-text">' + place.name + '</p></div>'
+          result += '<div class = "place-phone-number"> Phone No. : <p class = "place-text">' + place.international_phone_number +'</p></div>'
+          result += '<div class = "place-geo-location"> Distance: <p class = "place-text">' + getDistance(place.geometry.location, pos)+' km</p></div>'
+          result += '</li>'
+
+          $('#details-of-hospital').append(result);
+        }
+        else{
+          var result = '<p> Nothing to Display</p>'
+        }
+      })
+    }
+  } 
+  else {
+    console.log("callback.status=" + status);
+  }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -183,6 +210,22 @@ function createMarker(place) {
   });
   return marker;
 }
+
+var getDistance = function(p1, p2) {
+  var R = 6378137; // Earth’s mean radius in meter
+  var dLat = rad(p2.lat - p1.lat());
+  var dLong = rad(p2.lng - p1.lng());
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat)) *
+    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c / 1000;
+  return d.toFixed(2); // returns the distance in kmeter
+};
+
+var rad = function(x) {
+  return x * Math.PI / 180;
+};
 
 
 

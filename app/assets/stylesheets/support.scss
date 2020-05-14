@@ -10,6 +10,50 @@
     border: 2px solid #1fd660;
 }
 
+.list-of-hospitals{
+    margin-top: 5%;
+    overflow-y: scroll;
+    height: 600px;
+    margin-left: 5%;
+    box-shadow: 0 2px 4px -2px #000000;
+    // border-right: 2px solid #1fd660;;
+
+    .details-of-hospital{
+        padding-left: 0 !important;
+        list-style-type: none;
+
+        
+        .place-content{
+            padding: 20px;
+            border-left: 1px solid #1fd660;
+            border: 1px solid #1fd660;
+            font-weight: bold;
+            margin-bottom: 15px;
+            
+    
+            .place-name{
+                color: #1fd660;
+            }
+    
+            .place-phone-number{
+                color: #1fd660;
+            }
+    
+            .place-geo-location{
+                color: #1fd660;
+            }
+
+            .place-text{
+                color: white;
+                padding-left: 10px; 
+                
+            }
+        }
+    }
+
+    
+}
+
 @media(max-width: 768px){
 
     #map{
