@@ -10,6 +10,13 @@
     border: 2px solid #1fd660;
 }
 
+.support-section{
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex: 1;
+}
+
 .list-of-hospitals{
     margin-top: 5%;
     overflow-y: scroll;
@@ -25,11 +32,10 @@
         
         .place-content{
             padding: 20px;
-            border-left: 1px solid #1fd660;
             border: 1px solid #1fd660;
             font-weight: bold;
-            margin-bottom: 15px;
-            
+            margin-bottom: 10px;
+            max-height: 200px;
     
             .place-name{
                 color: #1fd660;
@@ -61,5 +67,16 @@
         width: 90vw;
         display: block;
         margin-top: 10%;
+        margin-bottom: 0;
+    }
+
+    .list-of-hospitals{
+        flex-direction: column;
+        // padding-left: 0 !important;
+        margin: 10% 5% 10% 5%;
+    }
+
+    .support-section{
+        flex-direction: column;
     }
 }

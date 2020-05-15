@@ -116,7 +116,7 @@ function getLocation() {
       })
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found');
+      infoWindow.setContent('You are here');
       infoWindow.open(map);
       map.setCenter(pos);
       getNearByPlaces(pos);
@@ -177,7 +177,7 @@ function callback(results, status) {
           $('#details-of-hospital').append(result);
         }
         else{
-          var result = '<p> Nothing to Display</p>'
+          var result = '<p> Nothing to Display </p>'
         }
       })
     }
@@ -200,7 +200,7 @@ function createMarker(place) {
     map: map,
     position: place.geometry.location,
     zoom: 15,
-    icon: "http://maps.google.com/mapfiles/ms/micons/red.png"
+    label: 'H'
   });
 
   google.maps.event.addListener(marker, 'click', function() {
