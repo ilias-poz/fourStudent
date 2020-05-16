@@ -1,0 +1,102 @@
+.food-section{
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    min-width: calc(100vw - 250px);
+}
+
+.recipes-list{
+    flex: 3;
+}
+
+.random-recipe{
+    margin: 3%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 2;
+    max-width: 600px;
+
+    .cuisine-search-section{
+        display: flex;
+
+        .cuisine-search-btn{
+            flex: 1;
+            min-width: 185px !important;
+        }
+
+        #cuisine-input{
+            flex: 2;
+            background-color: #1f2d41 !important;
+            resize: none;
+            outline: none;
+            border: none !important;
+            border-radius: 5px;
+            color: white;
+            margin-left: 10px;
+        }
+
+    }
+
+    .list-of-recipies{
+        flex: 1;
+        overflow-y: scroll;
+        max-height: 800px;
+        margin-top: 5%;
+
+        #details-of-recipies{
+            list-style-type: none;
+            padding-left: 0 !important;
+            
+        
+            .recipe-content{
+                padding: 20px;
+                border: 1px solid #1fd660;
+                font-weight: bold;
+                margin-bottom: 10px;
+                max-height: 200px;
+                display: flex;
+                
+                .recipe-info{
+                    flex: 2;
+                    overflow-x: scroll;
+
+                    .recipe-name{
+                        color: #1fd660;
+                    }
+            
+                    .recipe-time{
+                        color: #1fd660;
+                    }
+            
+                    .recipe-details{
+                        color: #1fd660;
+                    }
+
+                    .recipe-text{
+                        color: white;
+                        padding-left: 10px; 
+                        
+                    }
+                }
+                .recipe-img{
+                    flex: 1;
+                    margin: auto;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .food-section{
+        flex-direction: column;
+    }
+
+}
+
