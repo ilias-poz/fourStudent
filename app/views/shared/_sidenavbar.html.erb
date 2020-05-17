@@ -3,7 +3,7 @@
     <div class="sidebar-header">
         <div class = 'profile-userpic' >
             <img src="assets/gradient2.jpg" alt="profilepic" height="128" width="128">
-            <p style = "padding-top: 10px;">Dummy Name</p>
+            <p style = "padding-top: 10px;"><%= current_user.email.split('@')[0] %></p>
         </div>
     </div>
     <ul class="list-unstyled components" style = "text-align: center !important;">
