@@ -9,6 +9,8 @@
 
 .recipes-list{
     flex: 3;
+    // border-right: 2px solid white;
+    height: 100vh;
 }
 
 .random-recipe{
@@ -22,21 +24,40 @@
 
     .cuisine-search-section{
         display: flex;
+        flex-direction: column;
+        height: 100%;
 
-        .cuisine-search-btn{
+        .cuisine-search-section-top{
+            display: flex;
             flex: 1;
-            min-width: 185px !important;
+            .cuisine-search-btn{
+                flex: 1;
+                min-width: 185px !important;
+    
+            }
+    
+            #cuisine-input{
+                flex: 2;
+                background-color: #1f2d41 !important;
+                resize: none;
+                outline: none;
+                border: none !important;
+                border-radius: 5px;
+                color: white;
+                margin-left: 10px;
+            }
         }
 
-        #cuisine-input{
-            flex: 2;
-            background-color: #1f2d41 !important;
-            resize: none;
-            outline: none;
-            border: none !important;
-            border-radius: 5px;
-            color: white;
-            margin-left: 10px;
+        .cuisine-search-section-bottom{
+            // flex: 1;
+            flex-direction: row;
+            margin-top: 15px;
+            // display: flex;
+
+            label{
+                flex:1;
+                margin-left: 10px;
+            }
         }
 
     }
@@ -50,13 +71,15 @@
         #details-of-recipies{
             list-style-type: none;
             padding-left: 0 !important;
+            padding-bottom: 0 !important;
             
         
             .recipe-content{
                 padding: 20px;
                 border: 1px solid #1fd660;
                 font-weight: bold;
-                margin-bottom: 10px;
+                margin-top: 10px;
+                // margin-bottom: 10px;
                 max-height: 200px;
                 display: flex;
                 
@@ -86,6 +109,17 @@
                     flex: 1;
                     margin: auto;
                     text-align: center;
+
+                    img{
+                        filter: brightness(50%);
+                        border: 1px solid #1fd660;
+
+                        
+                    }
+
+                    :hover{
+                        filter: brightness(100%);
+                    }
                 }
             }
         }
@@ -100,3 +134,18 @@
 
 }
 
+@for $i from 0 through 100 {
+    .delay-#{$i} {
+        -webkit-animation-delay: $i * 100ms;
+        -moz-animation-delay: $i * 100ms;
+        -o-animation-delay: $i * 100ms;
+        animation-delay: $i * 100ms;
+    }
+
+    .speed-#{$i} {
+        -webkit-animation-duration: $i * 100ms;
+        -moz-animation-duration: $i * 100ms;
+        -o-animation-duration: $i * 100ms;
+        animation-duration: $i * 100ms;
+    }
+}
