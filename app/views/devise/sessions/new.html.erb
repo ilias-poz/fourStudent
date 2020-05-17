@@ -2,6 +2,9 @@
   <div class = 'form-header'>
     <h1 class="alert-heading">Log in</h1>
   </div>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.label :email , class: 'form-label' %><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control',style:'color: white;' %>
@@ -9,12 +12,12 @@
       <%= f.label :password, class: 'form-label' %><br />
       <%= f.password_field :password, autocomplete: "current-password", class: 'form-control',style:'color: white;' %>
       <br>
-    
+
 
     <div class="actions">
       <%= f.submit "Log in", class: 'round-btn', style: 'margin-bottom: 20px;'%>
       <% button_to "Sign up", '/#sign-up-form', method: :get ,class: 'round-sign-up-btn' %>
-      
+
     </div>
     <% if devise_mapping.rememberable? %>
 
