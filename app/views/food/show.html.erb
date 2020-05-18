@@ -1,0 +1,128 @@
+<div class = "food-section">
+    <div class = "recipes-list">
+        <div class = "recipe-search-section"> 
+            <button id = "recipe-btn" class = "recipe-search-btn round-btn"> Search <%= fa_icon('search')%></button>
+            <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Flour, Chicken, Oil, ...)">
+        </div>  
+
+        <div class = "list-of-searched-recipes">
+            <ul id = "details-of-searched-recipes">
+                <!-- <div class = 'recipes-container'>
+                    <div class = 'recipe-container-vertical animated fadeInUp'>
+                        <li>
+                            Vertical
+                        </li>
+                    </div>
+                    <div class = 'recipe-container-horizontal'>
+
+                        <div class = 'recipe-container-horizontal-top animated fadeInUp delay-2'>
+                            <li>
+                                Horizontal Top
+                            </li>
+                        </div>
+                        <div class = 'recipe-container-horizontal-bottom animated fadeInUp delay-3'>
+                            <li>
+                                Horizontal Bottom
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'recipes-container'>
+                    <div class = 'recipe-container-horizontal'>
+
+                        <div class = 'recipe-container-horizontal-top animated fadeInUp delay-4'>
+                            <li>
+                                Horizontal Top
+                            </li>
+                        </div>
+                        <div class = 'recipe-container-horizontal-bottom animated fadeInUp delay-5'>
+                            <li>
+                                Horizontal Bottom
+                            </li>
+                        </div>
+                    </div>
+                    <div class = 'recipe-container-vertical animated fadeInUp delay-6'>
+                        <li>
+                            Vertical
+                        </li>
+                    </div>
+                </div>
+                <div class = 'recipes-container'>
+                    <div class = 'recipe-container-vertical animated fadeInUp delay-7'>
+                        <li>
+                            Vertical
+                        </li>
+                    </div>
+                    <div class = 'recipe-container-horizontal'>
+
+                        <div class = 'recipe-container-horizontal-top animated fadeInUp delay-8'>
+                            <li>
+                                Horizontal Top
+                            </li>
+                        </div>
+                        <div class = 'recipe-container-horizontal-bottom animated fadeInRight delay-9'>
+                            <li>
+                                Horizontal Bottom
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'recipes-container'>
+                    <div class = 'recipe-container-horizontal'>
+
+                        <div class = 'recipe-container-horizontal-top'>
+                            <li>
+                                Horizontal Top
+                            </li>
+                        </div>
+                        <div class = 'recipe-container-horizontal-bottom'>
+                            <li>
+                                Horizontal Bottom
+                            </li>
+                        </div>
+                    </div>
+                    <div class = 'recipe-container-vertical animated fadeIn'>
+                        <li>
+                            Vertical
+                        </li>
+                    </div>
+                </div> -->
+            </ul>
+        </div>
+    </div>
+
+    <div class = "random-recipe">
+        <div class = "cuisine-search-section">
+            <div class = "cuisine-search-section-top"> 
+                <button id = "cuisine-btn" class = "cuisine-search-btn round-btn"> Generate Random </button>
+                <input type = "text" id = "cuisine-input" placeholder = "Search Cuisine">
+            </div>
+            <div class = "cuisine-search-section-bottom">
+                <!-- <label class = "form-label"> Cheap
+                    <input id = "recipe-cheap-checkbox" type="checkbox">
+                    <span class="checkmark"></span>
+                </label> -->
+
+                <label class = "form-label"> Vegeterian
+                    <input id = "recipe-vegetarian-checkbox" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class = "form-label"> Dessert
+                    <input id = "recipe-dessert-checkbox" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class = "list-of-recipies">
+            <ul id = "details-of-recipies">
+            </ul>
+        </div>
+    </div>
+
+    <div id = "food-section-text-id" class = "food-section-text">
+        <p> "Pick one method in order to get a recipe. You can either write your ingredients and get 
+            few recipes or you can just randomly generate based on the cuisine or preference"
+        </p>
+    </div>
+</div>

@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     
     $("#cuisine-btn").click(function(){
-        
+        $("#food-section-text-id").hide();
         if ($("#cuisine-input").val().toLowerCase() === ''){
             cuisine = '';
         }
@@ -45,24 +45,127 @@ $(document).ready(function(){
 
             for (var i = 0; i < results.length; i++){
                 console.log(i);
-                result += '<li class = "recipe-content animated fadeInUp delay-' + i + '">'
+                result += '<div class = "recipes-container animated fadeInUp delay-' + i + '">'
+                result += '<li class = "recipe-content">'
                 result += '<div class = "recipe-info">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[i].title + '</p></div>'
                 result += '<div class = "recipe-time"> Ready In: <p class = "recipe-text">' + results[i].readyInMinutes +' min</p></div>'
                 result += '<div class = "recipe-details"> URL: <p class = "recipe-text"><a href = "' +  results[i].sourceUrl + '" target="_blank" rel="noopener noreferrer">' + results[i].sourceUrl + '</a></p></div>'
-                // result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + recipies[i].title + '</p></div>'
                 result += '</div>'
                 result += '<div class = "recipe-img">'
                 result += '<img src = "' + results[i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
                 result += '</div>'
                 result += '</li>'
+                result += '</div>'
             }
 
             $('#details-of-recipies').append(result);
-            $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
+            // $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
         });
 
         
+    })
+
+    $('#recipe-btn').click(function(){
+        $("#food-section-text-id").hide();
+        var input = $('#search-recipe-input').val().toLowerCase();
+        var req = {
+            "async" : true,
+            "crossDomain" : true,
+            "method" : "GET",
+            "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=12&ingredients=" + input ,
+
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": "50177b6ce3msh1e4769e970d0466p16aa25jsnf49c35310b25"
+            }
+        }
+
+        console.log(req.url);
+
+        $.ajax(req).done(function (response) {
+            console.log(response);
+            var results = response
+            var result = '';
+
+            $('#details-of-searched-recipes').empty();
+
+            for (var i = 0; i < results.length; i+=6){
+                console.log(i)
+                result += "<div class = 'recipes-container'>"
+                result += "<div class = 'recipe-container-vertical animated fadeInUp delay-"+ (1 + i) +"'>"
+                result += '<li class = "recipe-content vertical">'
+                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[i].title + '</p></div>'
+                result += '</div>'
+                result += '<div class = "recipe-img">'
+                result += '<img src = "' + results[i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '</div>'
+                result += '</li>'
+                result += "</div>"
+                result += "<div class = 'recipe-container-horizontal'>"
+                result += "<div class = 'recipe-container-horizontal-top animated fadeInUp delay-"+ (2 + i) +"'>"
+                result += '<li class = "recipe-content horizontal">'
+                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[1+i].title + '</p></div>'
+                result += '</div>'
+                result += '<div class = "recipe-img">'
+                result += '<img src = "' + results[1+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '</div>'
+                result += '</li>'
+                result += "</div>"
+                result += "<div class = 'recipe-container-horizontal-bottom animated fadeInUp delay-"+ (3 + i) +"'>"
+                result += '<li class = "recipe-content horizontal">'
+                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[2+i].title + '</p></div>'
+                result += '</div>'
+                result += '<div class = "recipe-img">'
+                result += '<img src = "' + results[2+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '</div>'
+                result += '</li>'
+                result += "</div>"
+                result += "</div>"
+                result += "</div>"
+                result += "<div class = 'recipes-container'>"
+                result += "<div class = 'recipe-container-horizontal'>"
+                result += "<div class = 'recipe-container-horizontal-top animated fadeInUp delay-"+ (4 + i) +"'>"
+                result += '<li class = "recipe-content horizontal">'
+                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[3+i].title + '</p></div>'
+                result += '</div>'
+                result += '<div class = "recipe-img">'
+                result += '<img src = "' + results[3+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '</div>'
+                result += '</li>'
+                result += "</div>"
+                result += "<div class = 'recipe-container-horizontal-bottom animated fadeInUp delay-"+ (5 + i) +"'>"
+                result += '<li class = "recipe-content horizontal">'
+                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[4+i].title + '</p></div>'
+                result += '</div>'
+                result += '<div class = "recipe-img">'
+                result += '<img src = "' + results[4+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '</div>'
+                result += '</li>'
+                result += "</div>"
+                result += "</div>"
+                result += "<div class = 'recipe-container-vertical animated fadeInUp delay-"+ (6 + i) +"'>"
+                result += '<li class = "recipe-content vertical">'
+                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[5+i].title + '</p></div>'
+                result += '</div>'
+                result += '<div class = "recipe-img">'
+                result += '<img src = "' + results[5+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '</div>'
+                result += '</li>'
+                result += "</div>"
+                result += "</div>"
+            }
+
+            console.log(result)
+            $('#details-of-searched-recipes').append(result);
+            // $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
+        });
     })
     
 })

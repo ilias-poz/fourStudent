@@ -1,6 +1,7 @@
 require 'httparty'
 
 class UniValidator
+  
     def getUKUniversities
       url = 'http://universities.hipolabs.com/search?country=united kingdom'
       response = HTTParty.get(url)
@@ -14,7 +15,7 @@ class UniValidator
 
     def self.Validate(user_domain)
       ukdomains = getUKUniversities()
-      return domains.include?(user_domain)
+      return ukdomains.include?(user_domain)
 
     end
 end
