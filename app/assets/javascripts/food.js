@@ -95,11 +95,13 @@ $(document).ready(function(){
                 result += "<div class = 'recipes-container'>"
                 result += "<div class = 'recipe-container-vertical animated fadeInUp delay-"+ (1 + i) +"'>"
                 result += '<li class = "recipe-content vertical">'
-                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-info recipe-info-vertical">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[i].title + '</p></div>'
+                result += '<div class = "recipe-name"> Missing Ingredients: <p class = "recipe-text">' + results[i].missedIngredientCount + '</p></div>'
+                result += '<div class = "recipe-name"> Own Ingredients: <p class = "recipe-text">' + results[i].usedIngredientCount + '</p></div>'
                 result += '</div>'
-                result += '<div class = "recipe-img">'
-                result += '<img src = "' + results[i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '<div class = "recipe-img-vertical">'
+                result += '<img src = "' + results[i].image + '" width = ' + ' "150" ' + 'height = ' + ' "150" ' + '>'
                 result += '</div>'
                 result += '</li>'
                 result += "</div>"
@@ -108,6 +110,8 @@ $(document).ready(function(){
                 result += '<li class = "recipe-content horizontal">'
                 result += '<div class = "recipe-info">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[1+i].title + '</p></div>'
+                result += '<div class = "recipe-name"> Missing Ingredients: <p class = "recipe-text">' + results[1+i].missedIngredientCount + '</p></div>'
+                result += '<div class = "recipe-name"> Own Ingredients: <p class = "recipe-text">' + results[1+i].usedIngredientCount + '</p></div>'
                 result += '</div>'
                 result += '<div class = "recipe-img">'
                 result += '<img src = "' + results[1+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
@@ -118,6 +122,8 @@ $(document).ready(function(){
                 result += '<li class = "recipe-content horizontal">'
                 result += '<div class = "recipe-info">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[2+i].title + '</p></div>'
+                result += '<div class = "recipe-name"> Missing Ingredients: <p class = "recipe-text">' + results[2+i].missedIngredientCount + '</p></div>'
+                result += '<div class = "recipe-name"> Used Ingredients: <p class = "recipe-text">' + results[2+i].usedIngredientCount + '</p></div>'
                 result += '</div>'
                 result += '<div class = "recipe-img">'
                 result += '<img src = "' + results[2+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
@@ -132,9 +138,12 @@ $(document).ready(function(){
                 result += '<li class = "recipe-content horizontal">'
                 result += '<div class = "recipe-info">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[3+i].title + '</p></div>'
+                result += '<div class = "recipe-name"> Missing Ingredients: <p class = "recipe-text">' + results[3+i].missedIngredientCount + '</p></div>'
+                result += '<div class = "recipe-name"> Own Ingredients: <p class = "recipe-text">' + results[3+i].usedIngredientCount + '</p></div>'
                 result += '</div>'
                 result += '<div class = "recipe-img">'
                 result += '<img src = "' + results[3+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+        
                 result += '</div>'
                 result += '</li>'
                 result += "</div>"
@@ -142,6 +151,8 @@ $(document).ready(function(){
                 result += '<li class = "recipe-content horizontal">'
                 result += '<div class = "recipe-info">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[4+i].title + '</p></div>'
+                result += '<div class = "recipe-name"> Missing Ingredients: <p class = "recipe-text">' + results[4+i].missedIngredientCount + '</p></div>'
+                result += '<div class = "recipe-name"> Own Ingredients: <p class = "recipe-text">' + results[4+i].usedIngredientCount + '</p></div>'
                 result += '</div>'
                 result += '<div class = "recipe-img">'
                 result += '<img src = "' + results[4+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
@@ -151,11 +162,13 @@ $(document).ready(function(){
                 result += "</div>"
                 result += "<div class = 'recipe-container-vertical animated fadeInUp delay-"+ (6 + i) +"'>"
                 result += '<li class = "recipe-content vertical">'
-                result += '<div class = "recipe-info">'
+                result += '<div class = "recipe-info recipe-info-vertical">'
                 result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[5+i].title + '</p></div>'
+                result += '<div class = "recipe-name"> Missing Ingredients: <p class = "recipe-text">' + results[5+i].missedIngredientCount + '</p></div>'
+                result += '<div class = "recipe-name"> Own Ingredients: <p class = "recipe-text">' + results[5+i].usedIngredientCount + '</p></div>'
                 result += '</div>'
-                result += '<div class = "recipe-img">'
-                result += '<img src = "' + results[5+i].image + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                result += '<div class = "recipe-img-vertical">'
+                result += '<img src = "' + results[5+i].image + '" width = ' + ' "150" ' + 'height = ' + ' "150" ' + '>'
                 result += '</div>'
                 result += '</li>'
                 result += "</div>"
