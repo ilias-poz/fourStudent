@@ -76,5 +76,3 @@ gem "font-awesome-rails"
 gem 'mailgun-ruby', '~>1.1.6'
 gem "figaro"
 gem 'google_places'
-gem 'gmaps4rails'
-gem 'underscore-rails'
