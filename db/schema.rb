@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_133448) do
+ActiveRecord::Schema.define(version: 2020_04_09_184305) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text "message"
@@ -20,12 +20,21 @@ ActiveRecord::Schema.define(version: 2020_05_13_133448) do
     t.index ["user_id"], name: "index_chat_messages_on_user_id"
   end
 
-  create_table "supports", force: :cascade do |t|
-    t.string "name"
-    t.decimal "latitude"
-    t.decimal "longtitude"
+  create_table "room_messages", force: :cascade do |t|
+    t.integer "room_id"
+    t.integer "user_id"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_messages_on_room_id"
+    t.index ["user_id"], name: "index_room_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_rooms_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

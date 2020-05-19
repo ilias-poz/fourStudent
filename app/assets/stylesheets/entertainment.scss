@@ -1,0 +1,15 @@
+// Place all the styles related to the entertainment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#emap {
+    height: 400px;  /* The height is 400 pixels */
+    width: 59%
+    //background-color: red;  /* The width is the width of the web page */
+   }
+
+.entertainment-section{
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex: 1;
+}
