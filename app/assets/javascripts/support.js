@@ -150,7 +150,7 @@ function getNearByPlaces(pos) {
   request = {
     location: pos,
     radius: 200,
-    type: 'hospital'
+    query: 'mental health clinic'
   };
 
   service = new google.maps.places.PlacesService(map);
