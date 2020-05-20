@@ -108,15 +108,16 @@ function EntertainMap() {
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
       map.setCenter(current_pos);
-      searchNearby(location,'restaurant')
-      searchNearby(location,'bar')
-      searchNearby(location,'cafe')
-      searchNearby(location,'nightclub')
-      searchNearby(location,'museum')
-      searchNearby(location,'mall')
-      searchNearby(location,'park')
-      searchNearby(location,'tourist attraction')
-      searchNearby(location,'concert venue')
+      searchNearby(current_pos,'cafe')
+      searchNearby(current_pos,'restaurant')
+      searchNearby(current_pos,'bar')
+      searchNearby(current_pos,'cafe')
+      searchNearby(current_pos,'nightclub')
+      searchNearby(current_pos,'museum')
+      searchNearby(current_pos,'mall')
+      searchNearby(current_pos,'park')
+      searchNearby(current_pos,'tourist attraction')
+      searchNearby(current_pos,'concert venue')
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -128,27 +129,33 @@ function EntertainMap() {
 }
 
 function searchNearby(location,query){
+  console.log("ran")
+  console.log(location.lat,location.lng)
   var latlng = new google.maps.LatLng(location.lat,location.lng);
   var request = {
     location: latlng,
-    radius: '50',
-    query: query
+    radius: 200,
+    type: query
   };
   infowindow = new google.maps.InfoWindow();
   service = new google.maps.places.PlacesService(map)
-  distancematrix = new google.maps.DistanceMatrixService();
   service.textSearch(request,callBack)
 
 
 }
 
 function callBack(results,status){
+  console.log(status)
   if (status==google.maps.places.PlacesServiceStatus.OK){
+
+    var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
       console.log(place)
-      createEMarker(place);
+      var mark = createEMarker(place);
+      bounds.extend(mark.getPosition());
     }
+    map.fitBounds(bounds);
   }
 }
 
@@ -160,11 +167,11 @@ function createEMarker(place){
       break;
 
     case 'CLOSED_TEMPORARILY':
-      business_status = '<p style="color:red">CLOSED NOW</p>'
+      status = '<p style="color:red">CLOSED NOW</p>'
       break;
 
     case 'CLOSED_PERMANENTLY':
-      business_status = '<p style="color:red">PERMANENTLY CLOSED</p>'
+      status = '<p style="color:red">PERMANENTLY CLOSED</p>'
   }
 
   console.log(origin)
@@ -180,7 +187,7 @@ function createEMarker(place){
     map: map,
     animation: google.maps.Animation.DROP,
     position: place.geometry.location,
-    zoom: 15,
+    zoom: 50,
     icon: icon
   })
   google.maps.event.addListener(marker, 'click', function() {
@@ -201,7 +208,8 @@ function createEMarker(place){
         route = result.routes[0].legs[0] //Only one route returned anyway
         directionsRenderer.setDirections(result)
         var ETA = route.duration.text
-        infowindow.setContent('<div><strong>'+place.name+'</strong><br>'+place.formatted_address+'<br>'+business_status+'<br>'+'(walking) ETA: '+ETA)
+        console.log(status)
+        infowindow.setContent('<div><strong>'+place.name+'</strong><br>'+place.formatted_address+'<br>'+business_status+'<br>'+'(walking) ETA:'+ETA)
       }
     })
 
@@ -210,13 +218,11 @@ function createEMarker(place){
     map.setCenter(marker.position);
 
   });
-
-}
-
-function calculateRoute(origin,destination){
+  return marker
 
 
 }
+
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
