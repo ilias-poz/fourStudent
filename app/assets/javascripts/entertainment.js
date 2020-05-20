@@ -105,7 +105,7 @@ function EntertainMap() {
         icon: 'http://maps.google.com/mapfiles/ms/micons/blue.png'
       })
       infoWindow.setPosition(current_pos);
-      infoWindow.setContent('Location found.');
+      infoWindow.setContent('You are here.');
       infoWindow.open(map);
       map.setCenter(current_pos);
       searchNearby(current_pos,'cafe')
@@ -134,7 +134,7 @@ function searchNearby(location,query){
   var latlng = new google.maps.LatLng(location.lat,location.lng);
   var request = {
     location: latlng,
-    radius: 200,
+    rankBy: google.maps.places.RankBy.DISTANCE,
     type: query
   };
   infowindow = new google.maps.InfoWindow();
