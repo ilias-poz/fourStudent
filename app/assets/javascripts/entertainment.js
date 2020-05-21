@@ -135,7 +135,7 @@ function searchNearby(location,query){
   var request = {
     location: latlng,
     rankBy: google.maps.places.RankBy.DISTANCE,
-    type: query
+    query: query
   };
   infowindow = new google.maps.InfoWindow();
   service = new google.maps.places.PlacesService(map)
