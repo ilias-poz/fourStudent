@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   validate :emailValidation
 
+
   private
 
     def emailValidation()

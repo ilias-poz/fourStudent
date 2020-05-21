@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :recipes
+  
   post 'chatmessages/create', to: 'chatmessages#create'
   devise_for :users
 
   get '/chatmessages', to: 'chatmessages#show'
 
-  get '/contact', to: 'messages#new'
-  post 'contact/create', to: 'messages#create'
-
-
+  get '/myrecipes', to: 'recipes#index'
   get '/food', to: 'food#show'
   get '/support', to: 'support#show'
 

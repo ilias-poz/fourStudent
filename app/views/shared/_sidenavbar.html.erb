@@ -33,10 +33,15 @@
             <% end %>
         </li>
         <li>
-            <%= link_to contact_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;', data: {turbolinks: false} do %>
-                <%= fa_icon('phone 2x')%>
-                <b>Contact Us</b>
+            <%= link_to myrecipes_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;', data: {turbolinks: false} do %>
+                <%= fa_icon('heart 2x')%>
+                <b>My Recipes</b>
             <% end %>
+        </li>
+        <li>
+            <div id = "user_id" style = "visibility: hidden">
+                <%= current_user.id%>
+            </div>
         </li>
     </ul>
      <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">

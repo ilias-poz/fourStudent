@@ -4,7 +4,7 @@
             <button id = "recipe-btn" class = "recipe-search-btn round-btn"> Search <%= fa_icon('search')%></button>
             <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Flour, Chicken, Oil, ...)">
         </div>  
-
+        
         <div class = "list-of-searched-recipes">
             <ul id = "details-of-searched-recipes">
                 <!-- <div class = 'recipes-container'>
@@ -115,6 +115,8 @@
         </div>
 
         <div class = "list-of-recipies">
+        
+        
             <ul id = "details-of-recipies">
             </ul>
         </div>
@@ -125,4 +127,7 @@
             few recipes or you can just randomly generate based on the cuisine or preference"
         </p>
     </div>
+
+    <% render 'recipes/form', recipe: @recipe %>
+    
 </div>
