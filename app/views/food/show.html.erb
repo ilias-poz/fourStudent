@@ -2,9 +2,15 @@
     <div class = "recipes-list">
         <div class = "recipe-search-section"> 
             <button id = "recipe-btn" class = "recipe-search-btn round-btn"> Search <%= fa_icon('search')%></button>
-            <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Pasta,Chicken,Oil, ...)">
+            <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Flour, Chicken, Oil, ...)">
         </div>  
         
+        <div class = "list-of-searched-recipes">
+            <ul id = "details-of-searched-recipes">
+            </ul>
+        </div>
+    </div>
+
     <div class = "random-recipe">
         <div class = "cuisine-search-section">
             <div class = "cuisine-search-section-top"> 
@@ -12,6 +18,11 @@
                 <input type = "text" id = "cuisine-input" placeholder = "Search Cuisine">
             </div>
             <div class = "cuisine-search-section-bottom">
+                <!-- <label class = "form-label"> Cheap
+                    <input id = "recipe-cheap-checkbox" type="checkbox">
+                    <span class="checkmark"></span>
+                </label> -->
+
                 <label class = "form-label"> Vegeterian
                     <input id = "recipe-vegetarian-checkbox" type="checkbox">
                     <span class="checkmark"></span>
