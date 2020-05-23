@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:destroy]
 
   # GET /recipes
   # GET /recipes.json
@@ -31,13 +32,17 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to myrecipes_path, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Only allow a list of trusted parameters through.
+    def set_recipe
+      @recipe = Recipe.find(params[:id])
+    end
+
     def recipe_params
       params.require(:recipe).permit(:user_id, :name, :sourceUrl)
     end

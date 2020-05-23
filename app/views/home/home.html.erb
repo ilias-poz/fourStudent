@@ -10,7 +10,7 @@
       <div class="carousel-inner">
 
         <div class="item active">
-          <div class="item-carousel-image" style = "background-image: url('assets/foodWallpaper-7ead1f7f94db01b8ac2d12484477b0153b1e29e9baf545c70a1d4cd453501a93.jpg');"></div>
+          <div class="item-carousel-image" style = "background-image: url('<%= asset_path('foodWallpaper.jpg')%>');"></div>
           <div class="carousel-caption">
             <h3>Food Helper <%= fa_icon "shopping-cart"%></h3>
             <p>Know your grocery!</p>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="item">
-          <div class="item-carousel-image" style = "background-image: url('/assets/gradient2.jpg');"></div>
+          <div class="item-carousel-image" style = "background-image: url('<%= asset_path('gradient2.jpg')%>');"></div>
           <div class="carousel-caption">
             <h3 class = "animated fadeIn">Entertainment <%= fa_icon "child"%></h3>
             <p>Entertain your self!</p>
@@ -26,14 +26,14 @@
         </div>
 
         <div class="item">
-          <div class="item-carousel-image" style = "background-image: url('/assets/gradient3.jpg');"></div>
+          <div class="item-carousel-image" style = "background-image: url('<%= asset_path('gradient3.jpg')%>');"></div>
           <div class="carousel-caption">
             <h3>Support <%= fa_icon "home"%></h3>
             <p>Don't keep it inside!</p>
           </div>
         </div>
         <div class="item">
-          <div class="item-carousel-image" style = "background-image: url('/assets/gradient3.jpg');"></div>
+          <div class="item-carousel-image" style = "background-image: url(<%= asset_path('monkeyCarousel.jpeg')%>);"></div>
           <div class="carousel-caption">
             <h3>Lobby Chat <%= fa_icon "comment"%></h3>
             <p>Have fun with some random students</p>

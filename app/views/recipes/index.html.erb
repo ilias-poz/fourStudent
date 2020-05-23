@@ -1,2 +1,29 @@
+<div class = "main_saved_recipes">
+<% if @recipes.length == 0 %>
+    <div class = "image-container">
+        <img src= "<%= asset_path('sad_face.png')%>" height = "250px" width = "280px">
+        
+        <p>
+        You dont have any saved recipes.
+        </p>
+    </div>
 
+<% else %>
+    <div class = "saved_recipes" >
+        <ul class = "list_of_saved_recipes">
+            <% @recipes.each do |recipe| %>
+            <div class = "recipe-container">
+                <li class = "recipe-content">
+                    <div class = "recipe-info">
+                        <div class = "recipe-name"> Name: <p class = "recipe-text"> <%= recipe.name %> </p></div>
+                        <div class = "recipe-name"> SourceUrl: <p class = "recipe-text"> <%= recipe.sourceUrl %> </p></div>
+                        <%= link_to 'Delete Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "recipe_link_word" %>
+                    </div>
+                </li>
+            </div>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+</div>
 

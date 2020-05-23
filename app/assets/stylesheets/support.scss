@@ -19,7 +19,7 @@
 
 .list-of-hospitals{
     margin-top: 5%;
-    overflow-y: scroll;
+    overflow: auto;
     height: 600px;
     margin-left: 5%;
     box-shadow: 0 2px 4px -2px #000000;
