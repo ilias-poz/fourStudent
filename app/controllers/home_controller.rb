@@ -19,4 +19,13 @@ class HomeController < ApplicationController
 
   def main
   end
+
+  def terms
+  end
+
+  def about
+  end
+  
+  def privacy
+  end
 end

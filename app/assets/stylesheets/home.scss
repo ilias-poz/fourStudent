@@ -203,3 +203,17 @@ body {
   background-color: #009476;
   border-color: #009476;
 }
+
+.alerts{
+  position: absolute;
+  top: 15px;
+  background-color: #1f2d41;
+  left: 45%;
+  width: 20%;
+  // border-bottom: 1px solid #1fd660;
+  z-index: 1;
+
+  p{
+    color: #1fd660;
+  }
+}
