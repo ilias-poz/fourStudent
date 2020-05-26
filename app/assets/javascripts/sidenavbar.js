@@ -12,8 +12,13 @@ $(document).ready(function () {
         }
         else{
             $('#main_content')[0].style.visibility = 'visible';
-        } 
+        }
     });
-    
-    
+
+    $("#profilepic").on('click', function () {
+      // directly show the model
+      $("#profileModal").modal({show: true});
+    });
+
+
 });

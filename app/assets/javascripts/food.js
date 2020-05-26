@@ -10,19 +10,19 @@ $(document).ready(function(){
     var recipe_id, recipe_name, recipe_sourceUrl
     var user_id
 
-    
-    
+
+
     $("#cuisine-btn").click(function(){
-        
+
         console.log(user_id);
         $("#food-section-text-id").hide();
         if ($("#cuisine-input").val().toLowerCase() === ''){
             cuisine = '';
         }
         else{
-            cuisine = $("#cuisine-input").val().toLowerCase() + ','; 
+            cuisine = $("#cuisine-input").val().toLowerCase() + ',';
         }
-        
+
 
         var dessert_checkbox = (($('#recipe-dessert-checkbox:checked').val() == "on") ? "dessert," : "");
         var vegetarian_checkbox = (($('#recipe-vegaterian-checkbox:checked').val() == "on") ? "vegetarian," : "");
@@ -41,7 +41,7 @@ $(document).ready(function(){
             }
         }
         console.log(req.url);
-        
+
         $.ajax(req).done(function (response) {
             console.log(response);
             var results = response.recipes
@@ -75,7 +75,7 @@ $(document).ready(function(){
             // $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
         });
 
-        
+
     })
 
     $('#recipe-btn').click(function(){
@@ -195,7 +195,7 @@ $(document).ready(function(){
             // $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
         });
 
-    })    
+    })
 })
 
 function getDetailedRecipe(id, user_id){
@@ -218,6 +218,12 @@ function getDetailedRecipe(id, user_id){
         $("#recipe_name").val(response.title);
 
         $("#recipe_sourceUrl").val(response.sourceUrl);
+
+        // change modal title & content
+        $("#titleText").text(response.title);
+        $("#bodyText").html(response.summary);
+
+        $("#detailedRceipeModal").modal({show: true});
 
         console.log(user_id,response.title, response.sourceUrl)
     });

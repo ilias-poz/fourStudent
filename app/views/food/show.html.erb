@@ -1,10 +1,10 @@
 <div class = "food-section">
     <div class = "recipes-list">
-        <div class = "recipe-search-section"> 
+        <div class = "recipe-search-section">
             <button id = "recipe-btn" class = "recipe-search-btn round-btn"> Search <%= fa_icon('search')%></button>
             <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Flour, Chicken, Oil, ...)">
-        </div>  
-        
+        </div>
+
         <div class = "list-of-searched-recipes">
             <ul id = "details-of-searched-recipes">
             </ul>
@@ -13,7 +13,7 @@
 
     <div class = "random-recipe">
         <div class = "cuisine-search-section">
-            <div class = "cuisine-search-section-top"> 
+            <div class = "cuisine-search-section-top">
                 <button id = "cuisine-btn" class = "cuisine-search-btn round-btn"> Generate Random </button>
                 <input type = "text" id = "cuisine-input" placeholder = "Search Cuisine">
             </div>
@@ -41,11 +41,31 @@
     </div>
 
     <div id = "food-section-text-id" class = "food-section-text animated fadeIn delay-1">
-        <p> "Pick one method in order to get a recipe. You can either write your ingredients and get 
+        <p> "Pick one method in order to get a recipe. You can either write your ingredients and get
             few recipes or you can just randomly generate based on the cuisine or preference"
         </p>
     </div>
 
     <% render 'recipes/form', recipe: @recipe %>
-    
+
+    <!-- Rceipe Modal -->
+    <div class="modal fade" id="detailedRceipeModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" id="titleText"></h4>
+          </div>
+          <div class="modal-body" id="bodyText">
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 </div>

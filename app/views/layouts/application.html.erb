@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
@@ -38,6 +38,35 @@
       <% else %>
         <%= yield %>
       <% end %>
+
+      <% if current_user %>
+      <!-- Profile Modal -->
+      <div class="modal fade" id="profileModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">About <%= current_user.email.split('@')[0] %></h4>
+            </div>
+            <div class="modal-body">
+              <p>
+                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" width="20px" /> <%= current_user.email %> <br />
+                <img src="http://icons.iconarchive.com/icons/icons8/windows-8/256/Science-University-icon.png" width="15px" /> <!-- have to rewrite the UK university func, someone deleted it.. -->
+              </p>
+              <p>This is just an example for now.</p>
+            </div>
+            <div class="modal-footer">
+              <%= link_to "Delete Account", registration_path(current_user), data: { confirm: "Yes, I know this will delete my account." }, method: :delete, class: "btn btn-danger mr-auto" %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <% end %>
+
     </main>
 
     <%= render "shared/footer" %>
