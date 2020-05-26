@@ -14,7 +14,6 @@ $(document).ready(function(){
 
     $("#cuisine-btn").click(function(){
 
-        console.log(user_id);
         $("#food-section-text-id").hide();
         if ($("#cuisine-input").val().toLowerCase() === ''){
             cuisine = '';
@@ -67,10 +66,6 @@ $(document).ready(function(){
                 result += '</li>'
                 result += '</div>'
             }
-            console.log(recipe_id);
-            console.log(recipe_name);
-            console.log(recipe_sourceUrl);
-
             $('#details-of-recipies').append(result);
             // $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
         });
@@ -80,7 +75,6 @@ $(document).ready(function(){
 
     $('#recipe-btn').click(function(){
         user_id = $("#user_id").text();
-        console.log("Hui" + user_id);
         $("#food-section-text-id").hide();
         var input = $('#search-recipe-input').val().toLowerCase();
         var req = {
@@ -95,10 +89,8 @@ $(document).ready(function(){
             }
         }
 
-        console.log(req.url);
 
         $.ajax(req).done(function (response) {
-            console.log(response);
             var results = response
             var result = '';
 
@@ -190,7 +182,6 @@ $(document).ready(function(){
 
             }
 
-            console.log(result)
             $('#details-of-searched-recipes').append(result);
             // $('.list-of-recipies').css("box-shadow", "0 2px 4px -2px #000000");
         });
@@ -211,18 +202,24 @@ function getDetailedRecipe(id, user_id){
     }
 
     $.ajax(req,user_id).done(function (response) {
+        $("#recipe_user_id").val(user_id);
+        $("#recipe_name").val(response.title);
+        $("#recipe_sourceUrl").val(response.sourceUrl);
         console.log(response);
 
-        $("#recipe_user_id").val(user_id);
+        
+        var result = "<b>Ingredients: "+response.extendedIngredients.length+"</b>";
+        
+        for(var i = 0; i < response.extendedIngredients.length; i++){
+            result += "<p>"+ (i + 1) +". " + response.extendedIngredients[i].name  + "</p>"
+        }
 
-        $("#recipe_name").val(response.title);
-
-        $("#recipe_sourceUrl").val(response.sourceUrl);
-
+        result += "<br><b> Description: </b>"
+        result += "<p>" + response.summary + "</p>"
         // change modal title & content
         $("#titleText").text(response.title);
-        $("#bodyText").html(response.summary);
 
+        $("#bodyText").html(result);
         $("#detailedRceipeModal").modal({show: true});
 
         console.log(user_id,response.title, response.sourceUrl)

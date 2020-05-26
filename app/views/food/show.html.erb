@@ -46,7 +46,7 @@
         </p>
     </div>
 
-    <% render 'recipes/form', recipe: @recipe %>
+    
 
     <!-- Rceipe Modal -->
     <div class="modal fade" id="detailedRceipeModal" role="dialog">
@@ -62,6 +62,7 @@
             <p></p>
           </div>
           <div class="modal-footer">
+            <%= render 'recipes/form', recipe: @recipe %>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
