@@ -18,3 +18,17 @@
 //= require bootstrap-sprockets
 //= require popper
 //= require_tree .
+$(document).ready(function () {
+
+    $("#termsLink").on('click', function () {
+      // directly show the model
+      $("#termsModal").modal({show: true});
+    });
+
+    $("#privacyLink").on('click', function () {
+      // directly show the model
+      $("#privacyModal").modal({show: true});
+    });
+
+
+});
