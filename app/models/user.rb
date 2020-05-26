@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validate :emailValidation
 
+  has_many :chat_messages, dependent: :destroy
+  has_many :recipes, dependent: :destroy
 
   private
 
