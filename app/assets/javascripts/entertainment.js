@@ -1,6 +1,7 @@
 var map, infoWindow, current_pos,query;
 var directionsRenderer;
 var status;
+
 function EntertainMap() {
   map = new google.maps.Map(document.getElementById('emap'), {
     center: {lat: -34.397, lng: 150.644},
@@ -108,7 +109,7 @@ function EntertainMap() {
       infoWindow.setContent('You are here.');
       infoWindow.open(map);
       map.setCenter(current_pos);
-      searchNearby(current_pos,'cafe')
+
       searchNearby(current_pos,'restaurant')
       searchNearby(current_pos,'bar')
       searchNearby(current_pos,'cafe')
@@ -231,4 +232,21 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
+}
+
+function getEvents(){
+  $.ajax({
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?classifictionName=music&size=1&apikey=8VuWQpHeIqEaIqtVzojIkUCGFs4c09wF",
+    async:true,
+    dataType: "json",
+    success: function(json) {
+                console.log(json);
+                // Parse the response.
+                // Do other things.
+             },
+    error: function(xhr, status, err) {
+                // This time, we do not end up here!
+             }
+  });
 }
