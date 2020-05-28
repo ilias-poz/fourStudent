@@ -53,10 +53,9 @@
             <div class="modal-body">
             <% saved_recipes = Recipe.where(user_id: current_user).length %>
             <% messages_send = ChatMessage.where(user: current_user).length %>
-              <p>
-                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" width="20px" /> <%= current_user.email %> <br />
+
                <!-- <img src="http://icons.iconarchive.com/icons/icons8/windows-8/256/Science-University-icon.png" width="15px" />  have to rewrite the UK university func, someone deleted it.. -->
-              </p>
+              <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" width="20px" /> <%= current_user.email %> <br />
               <img src="<%= asset_path('recipebook.png')%>" width="20px"> Saved recipes: <b><%= saved_recipes%></b><br>
               <img src="<%= asset_path('messages.png')%>" width="20px"> Messages send: <b><%= messages_send%></b><br>
             </div>

@@ -91,8 +91,9 @@ function EntertainMap() {
   });
   infoWindow = new google.maps.InfoWindow;
   directionsRenderer =  new google.maps.DirectionsRenderer({
-    suppressMarkers: true
+  suppressMarkers: true
   });
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -105,6 +106,7 @@ function EntertainMap() {
         map:map,
         icon: 'http://maps.google.com/mapfiles/ms/micons/blue.png'
       })
+
       infoWindow.setPosition(current_pos);
       infoWindow.setContent('You are here.');
       infoWindow.open(map);
@@ -115,10 +117,7 @@ function EntertainMap() {
       searchNearby(current_pos,'cafe')
       searchNearby(current_pos,'nightclub')
       searchNearby(current_pos,'museum')
-      searchNearby(current_pos,'mall')
       searchNearby(current_pos,'park')
-      searchNearby(current_pos,'tourist attraction')
-      searchNearby(current_pos,'concert venue')
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -130,8 +129,6 @@ function EntertainMap() {
 }
 
 function searchNearby(location,query){
-  console.log("ran")
-  console.log(location.lat,location.lng)
   var latlng = new google.maps.LatLng(location.lat,location.lng);
   var request = {
     location: latlng,
@@ -146,13 +143,11 @@ function searchNearby(location,query){
 }
 
 function callBack(results,status){
-  console.log(status)
   if (status==google.maps.places.PlacesServiceStatus.OK){
 
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      console.log(place)
       var mark = createEMarker(place);
       bounds.extend(mark.getPosition());
     }
@@ -175,7 +170,6 @@ function createEMarker(place){
       status = '<p style="color:red">PERMANENTLY CLOSED</p>'
   }
 
-  console.log(origin)
 
 
   var icon = {
@@ -209,7 +203,6 @@ function createEMarker(place){
         route = result.routes[0].legs[0] //Only one route returned anyway
         directionsRenderer.setDirections(result)
         var ETA = route.duration.text
-        console.log(status)
         infowindow.setContent('<div><strong>'+place.name+'</strong><br>'+place.formatted_address+'<br>'+business_status+'<br>'+'(walking) ETA:'+ETA)
       }
     })
@@ -237,13 +230,31 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function getEvents(){
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?classifictionName=music&size=1&apikey=8VuWQpHeIqEaIqtVzojIkUCGFs4c09wF",
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?classifictionName=music&size=20&countryCode=gb&apikey=8VuWQpHeIqEaIqtVzojIkUCGFs4c09wF",
     async:true,
     dataType: "json",
-    success: function(json) {
-                console.log(json);
-                // Parse the response.
-                // Do other things.
+    success: function(response) {
+                console.log(response);
+
+                $('#details-of-event').empty();
+                var results = response._embedded.events;
+                var result = '';
+                for (var i = 0; i < results.length; i++){
+                    result += '<div class = "recipes-container animated fadeInUp delay-' + i + '">'
+                    result += '<li class = "recipe-content">'
+                    result += '<div class = "recipe-info">'
+                    result += '<div class = "recipe-name"> Name: <p class = "recipe-text">' + results[i].name + '</p></div>'
+                    result += '<div class = "recipe-time"> Location: <p class = "recipe-text">' + results[i].dates.timezone +' </p></div>'
+                    result += '<div class = "recipe-time"> Date: <p class = "recipe-text">' + results[i].dates.start.localDate +' </p></div>'
+                    result += '<div class = "recipe-details"> URL: <p class = "recipe-text"><a href = "' +  results[i].url + '" target="_blank" rel="noopener noreferrer">' + results[i].url + '</a></p></div>'
+                    result += '</div>'
+                    result += '<div class = "recipe-img">'
+                    result += '<img src = "' + results[i].images[0].url + '" width = ' + ' "100" ' + 'height = ' + ' "100" ' + '>'
+                    result += '</div>'
+                    result += '</li>'
+                    result += '</div>'
+                }
+                $('#details-of-event').append(result);
              },
     error: function(xhr, status, err) {
                 // This time, we do not end up here!

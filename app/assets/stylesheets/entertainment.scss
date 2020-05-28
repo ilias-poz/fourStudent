@@ -1,17 +1,100 @@
 // Place all the styles related to the entertainment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#emap {
-  height: 600px;
-  width: 600px;
-  display: block;
-  margin: 5%;
-  border: 2px solid #1fd660; 
-  }
-
 .entertainment-section{
     height: 100%;
     overflow: auto;
     display: flex;
     flex: 1;
 }
+
+#emap {
+  height: 600px;
+  width: 600px;
+  display: block;
+  margin: 5%;
+  border: 2px solid #1fd660; 
+}
+
+
+.list-of-events{
+// margin-top: 5%;
+overflow: auto;
+height: 600px;
+min-width: 300px;
+box-shadow: 0 2px 4px -2px #000000;
+flex:1;
+margin: 5%;
+
+  button{
+    width: 100%;
+  }
+  .details-of-events{
+    padding-left: 0 !important;
+    list-style-type: none;
+
+
+    .place-content{
+      padding: 20px;
+      border: 1px solid #1fd660;
+      font-weight: bold;
+      margin-bottom: 10px;
+      max-height: 200px;
+
+      .place-name{
+          color: #1fd660;
+      }
+
+      .place-phone-number{
+          color: #1fd660;
+      }
+
+      .place-geo-location{
+          color: #1fd660;
+      }
+
+      .place-text{
+          color: white;
+          padding-left: 10px;
+
+      }
+    }
+  }
+}
+
+
+@media(max-width: 768px){
+  .entertainment-section{
+    flex-direction: column;
+    
+  }
+
+  #emap{
+    height: 600px;
+    width: 90vw;
+    display: block;
+    margin-top: 10%;
+    margin-bottom: 0;
+  }
+
+  .list-of-events{
+    
+  }
+}
+
+@for $i from 0 through 100 {
+  .delay-#{$i} {
+      -webkit-animation-delay: $i * 100ms;
+      -moz-animation-delay: $i * 100ms;
+      -o-animation-delay: $i * 100ms;
+      animation-delay: $i * 100ms;
+  }
+
+  .speed-#{$i} {
+      -webkit-animation-duration: $i * 100ms;
+      -moz-animation-duration: $i * 100ms;
+      -o-animation-duration: $i * 100ms;
+      animation-duration: $i * 100ms;
+  }
+}
+
