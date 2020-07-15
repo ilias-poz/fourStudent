@@ -1,11 +1,65 @@
-<div class = "support-section">
-    <div id = "map"></div>
-    <div class = "list-of-hospitals">
-        <ul id = 'details-of-hospital' class = "details-of-hospital">
+
+<div class = 'wrapper'>
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <div class = 'profile-userpic' >
+                <img id="profilepic" src="<%= asset_path('gradient3.jpg')%>" alt="profilepic" height="128" width="128">
+                <p style = "padding-top: 10px;">Dummy Dummy</p>
+            </div>
+        </div>
+        <ul class="list-unstyled components" style = "text-align: center !important;">
+
+            <li>
+                <%= link_to food_path, class: 'btn sidebar-btn', style: 'background-color: #1853ab;', data: {turbolinks: false} do %>
+                    <%= fa_icon('shopping-cart 2x')%>
+                    <b>Food</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to entertainment_path, class: 'btn sidebar-btn', style: 'background-color: #1f4e94;', data: {turbolinks: false} do %>
+                    <%= fa_icon('child 2x')%>
+                    <b>Entertainment</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to support_path, class: 'btn sidebar-btn', style: 'background-color: #23477d;', data: {turbolinks: false} do %>
+                    <%= fa_icon('plus-square 2x')%>
+                    <b>Support</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to chatmessages_path, class: 'btn sidebar-btn', style: 'background-color: #233d63;', data: {turbolinks: false} do %>
+                    <%= fa_icon('comment 2x')%>
+                    <b>Lobby Chat</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to myrecipes_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;', data: {turbolinks: false} do %>
+                    <%= fa_icon('heart 2x')%>
+                    <b>My Recipes</b>
+                <% end %>
+            </li>
+            <li>
+                <div id = "user_id" style = "visibility: hidden">
+                    <%# <%  current_user.id%> %>
+                </div>
+            </li>
         </ul>
+        <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
+                <%= fa_icon('long-arrow-left 2x')%>
+        </button>
+    </nav>
+    <div id = 'main_content'>
+        <div class = "support-section">
+            <div id = "map"></div>
+            <div class = "list-of-hospitals">
+                <ul id = 'details-of-hospital' class = "details-of-hospital">
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
-
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7JLWw_7dUfAN0YhA_X3TyKULfu4SofAI&libraries=places&callback=initMap"></script>  
 
 

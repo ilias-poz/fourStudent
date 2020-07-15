@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   get '/entertainment', to: 'entertainment#show'
 
-  authenticated :user do
-    root to: "home#main"
-  end
+  get '/main', to: 'home#main'
+  # authenticated :user do
+    # root to: "home#main"
+  # end
 
-  unauthenticated :user do
-    root "home#home"
-  end
+  # unauthenticated :user do
+  root "home#home"
+  # end
 end

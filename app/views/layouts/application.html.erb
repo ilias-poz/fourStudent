@@ -37,17 +37,7 @@
 </div>
 
     <main role="main">
-      <% if user_signed_in? %>
-        <div class = "wrapper">
-          <%= render 'shared/sidenavbar' %>
-          <div id = main_content>
             <%= yield%>
-          </div>
-        </div>
-      <% else %>
-        <%= yield %>
-      <% end %>
-
       <% if current_user %>
       <!-- Profile Modal -->
       <div class="modal fade" id="profileModal" role="dialog">
@@ -76,6 +66,32 @@
 
         </div>
       </div>
+      <% else %>
+        <div class="modal fade" id="profileModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">About <%= 'Dummy Dummy' %></h4>
+              </div>
+              <div class="modal-body">
+              <% saved_recipes = 'N/A' %>
+              <% messages_send = 'N/A' %>
+
+                <!-- <img src="http://icons.iconarchive.com/icons/icons8/windows-8/256/Science-University-icon.png" width="15px" />  have to rewrite the UK university func, someone deleted it.. -->
+                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" width="20px" /> example@example.com <br />
+                <img src="<%= asset_path('recipebook.png')%>" width="20px"> Saved recipes: <b><%= saved_recipes%></b><br>
+                <img src="<%= asset_path('messages.png')%>" width="20px"> Messages send: <b><%= messages_send%></b><br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
       <% end %>
 
       <!-- Terms Modal -->

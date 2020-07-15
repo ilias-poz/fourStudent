@@ -1,31 +1,84 @@
-<div class="container container-form">
-  <div class="row">
-    <div class="form-header">
-      <h1 class = "alert-heading">Chat Room</h1>
+<div class = 'wrapper'>
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+          <div class="sidebar-header">
+              <div class = 'profile-userpic' >
+                  <img id="profilepic" src="<%= asset_path('gradient3.jpg')%>" alt="profilepic" height="128" width="128">
+                  <p style = "padding-top: 10px;">Dummy Dummy</p>
+              </div>
+          </div>
+          <ul class="list-unstyled components" style = "text-align: center !important;">
 
-    </div>
-  </div>
+              <li>
+                  <%= link_to food_path, class: 'btn sidebar-btn', style: 'background-color: #1853ab;', data: {turbolinks: false} do %>
+                      <%= fa_icon('shopping-cart 2x')%>
+                      <b>Food</b>
+                  <% end %>
+              </li>
+              <li>
+                  <%= link_to entertainment_path, class: 'btn sidebar-btn', style: 'background-color: #1f4e94;', data: {turbolinks: false} do %>
+                      <%= fa_icon('child 2x')%>
+                      <b>Entertainment</b>
+                  <% end %>
+              </li>
+              <li>
+                  <%= link_to support_path, class: 'btn sidebar-btn', style: 'background-color: #23477d;', data: {turbolinks: false} do %>
+                      <%= fa_icon('plus-square 2x')%>
+                      <b>Support</b>
+                  <% end %>
+              </li>
+              <li>
+                  <%= link_to chatmessages_path, class: 'btn sidebar-btn', style: 'background-color: #233d63;', data: {turbolinks: false} do %>
+                      <%= fa_icon('comment 2x')%>
+                      <b>Lobby Chat</b>
+                  <% end %>
+              </li>
+              <li>
+                  <%= link_to myrecipes_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;', data: {turbolinks: false} do %>
+                      <%= fa_icon('heart 2x')%>
+                      <b>My Recipes</b>
+                  <% end %>
+              </li>
+              <li>
+                  <div id = "user_id" style = "visibility: hidden">
+                  </div>
+              </li>
+          </ul>
+          <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
+                  <%= fa_icon('long-arrow-left 2x')%>
+          </button>
+      </nav>
+      <div id = 'main_content'>
+        <div class="container container-form">
+          <div class="row">
+            <div class="form-header">
+              <h1 class = "alert-heading">Chat Room</h1>
 
-  <div class="row">
-    <div class="form-control" id="chatbox", style = "height: 500px; color:white">
-      <% @chatmessages.each do |chatmessage| %>
-        <%= render 'chat_messages/chat_message', chat_message: chatmessage %>
-      <% end %>
-    </div>
-  </div>
-  <div class = "row" style = "margin-top: 10px;">
-      <div class = 'wrapper'>
-        <div class="input-group" style="float:left; width: 100%;">
-          <%= simple_form_for(@chatmessage, url: chatmessages_create_url, remote: true) do |f| %>
-          <%= f.text_field :message, required: true, placeholder: 'Say something', class: 'form-control', style:'color:white; ' %>
-        </div>
+            </div>
+          </div>
 
-        <div class="input-group-append" style="float:right;">
-          <%= button_tag(class: 'round-btn', style: 'border-radius: 5px; height: 34px; width: 34px;') do %>
-            <%= fa_icon 'arrow-right', style: 'border-radius: 45rem;'%>
-          <% end %>
+          <div class="row">
+            <div class="form-control" id="chatbox", style = "height: 500px; color:white">
+              <% @chatmessages.each do |chatmessage| %>
+                <%= render 'chat_messages/chat_message', chat_message: chatmessage %>
+              <% end %>
+            </div>
+          </div>
+          <div class = "row" style = "margin-top: 10px;">
+              <div class = 'wrapper'>
+                <div class="input-group" style="float:left; width: 100%;">
+                  <%= simple_form_for(@chatmessage, url: chatmessages_create_url, remote: true) do |f| %>
+                  <%= f.text_field :message, required: true, placeholder: 'Say something', class: 'form-control', style:'color:white; ' %>
+                </div>
+
+                <div class="input-group-append" style="float:right;">
+                  <%= button_tag(class: 'round-btn', style: 'border-radius: 5px; height: 34px; width: 34px;') do %>
+                    <%= fa_icon 'arrow-right', style: 'border-radius: 45rem;'%>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    <% end %>
-  </div>
 </div>

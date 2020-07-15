@@ -1,80 +1,134 @@
-<div class = main-after-login>
-    <div class = "top-main-section">
-        <div class = "top-component-main-section" style = "border: 2px solid #1fd660; ">
-            <div class = "top-side-component">
-                <p><b>F</b>ood <b>S</b>ection</p>
-            </div>
-            <div class = "bottom-side-component">
-                <p class = 'component-info'>
-                    "Why don't you try something new?
-                    This section will help you to 
-                    find your missing ingredients when 
-                    you want to cook something or just 
-                    simply generate a recipe!"
-                </p>
+<div class = 'wrapper'>
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <div class = 'profile-userpic' >
+                <img id="profilepic" src="<%= asset_path('gradient3.jpg')%>" alt="profilepic" height="128" width="128">
+                <p style = "padding-top: 10px;">Dummy Dummy</p>
             </div>
         </div>
-        <div class = "top-component-main-section">
-            <%= link_to fa_icon('shopping-cart 5x'), food_path%>
-        </div>
-        <div class = "top-component-main-section" style = "border: 2px solid #1fd660; ">
-            <div class = "top-side-component">
-                <p><b>S</b>upport <b>S</b>ection</p>
-            </div>
-            
-            <div class = "bottom-side-component">
-                <p class = 'component-info'>
-                    "Feeling sick and you think you
-                    require a medical or mental
-                    assistant? Will help you to 
-                    find your nearby health institutios!"
-                </p>
-            </div>
-        </div>
-        <div class = "top-component-main-section">
+        <ul class="list-unstyled components" style = "text-align: center !important;">
 
-            <%= link_to fa_icon('plus-square 5x'), support_path%> 
-            
-        </div>
-    </div>
+            <li>
+                <%= link_to food_path, class: 'btn sidebar-btn', style: 'background-color: #1853ab;', data: {turbolinks: false} do %>
+                    <%= fa_icon('shopping-cart 2x')%>
+                    <b>Food</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to entertainment_path, class: 'btn sidebar-btn', style: 'background-color: #1f4e94;', data: {turbolinks: false} do %>
+                    <%= fa_icon('child 2x')%>
+                    <b>Entertainment</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to support_path, class: 'btn sidebar-btn', style: 'background-color: #23477d;', data: {turbolinks: false} do %>
+                    <%= fa_icon('plus-square 2x')%>
+                    <b>Support</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to chatmessages_path, class: 'btn sidebar-btn', style: 'background-color: #233d63;', data: {turbolinks: false} do %>
+                    <%= fa_icon('comment 2x')%>
+                    <b>Lobby Chat</b>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to myrecipes_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;', data: {turbolinks: false} do %>
+                    <%= fa_icon('heart 2x')%>
+                    <b>My Recipes</b>
+                <% end %>
+            </li>
+            <li>
+                <div id = "user_id" style = "visibility: hidden">
+                    <%# <%  current_user.id%> %>
+                </div>
+            </li>
+        </ul>
+        <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
+                <%= fa_icon('long-arrow-left 2x')%>
+        </button>
+    </nav>
+    <div id = 'main_content'>
+        <div class = main-after-login>
+            <div class = "top-main-section">
+                <div class = "top-component-main-section" style = "border: 2px solid #1fd660; ">
+                    <div class = "top-side-component">
+                        <p><b>F</b>ood <b>S</b>ection</p>
+                    </div>
+                    <div class = "bottom-side-component">
+                        <p class = 'component-info'>
+                            "Why don't you try something new?
+                            This section will help you to 
+                            find your missing ingredients when 
+                            you want to cook something or just 
+                            simply generate a recipe!"
+                        </p>
+                    </div>
+                </div>
+                <div class = "top-component-main-section">
+                    <%= link_to fa_icon('shopping-cart 5x'), food_path%>
+                </div>
+                <div class = "top-component-main-section" style = "border: 2px solid #1fd660; ">
+                    <div class = "top-side-component">
+                        <p><b>S</b>upport <b>S</b>ection</p>
+                    </div>
+                    
+                    <div class = "bottom-side-component">
+                        <p class = 'component-info'>
+                            "Feeling sick and you think you
+                            require a medical or mental
+                            assistant? Will help you to 
+                            find your nearby health institutios!"
+                        </p>
+                    </div>
+                </div>
+                <div class = "top-component-main-section">
 
-    <div class = "bottom-main-section">
-        <div class = "bottom-component-main-section">
-            <%= link_to fa_icon('child 5x'), entertainment_path%>
-        </div>
-        <div class = "bottom-component-main-section" style = "border: 2px solid #1fd660; ">
-            <div class = "top-side-component">
-                <p><b>E</b>ntertainment <b>S</b>ection</p>
+                    <%= link_to fa_icon('plus-square 5x'), support_path%> 
+                    
+                </div>
             </div>
-            <div class = "bottom-side-component">
-                <p class = 'component-info'>
-                    "Bored in your room? Come here 
-                    and you will find the places 
-                    where you can have some fun 
-                    with your friends or even make
-                    friends there. Also, dont forget
-                    to see the events that are next to 
-                    you!"
-                </p>
-            </div>
-        </div>
-       
-        <div class = "bottom-component-main-section">
-            <%= link_to fa_icon('comment 5x'), chatmessages_path%>
-        </div>
-        <div class = "bottom-component-main-section" style = "border: 2px solid #1fd660; ">
-            <div class = "top-side-component">
-                <p><b>L</b>obby <b>C</b>hat</p>
-            </div>
+
+            <div class = "bottom-main-section">
+                <div class = "bottom-component-main-section">
+                    <%= link_to fa_icon('child 5x'), entertainment_path%>
+                </div>
+                <div class = "bottom-component-main-section" style = "border: 2px solid #1fd660; ">
+                    <div class = "top-side-component">
+                        <p><b>E</b>ntertainment <b>S</b>ection</p>
+                    </div>
+                    <div class = "bottom-side-component">
+                        <p class = 'component-info'>
+                            "Bored in your room? Come here 
+                            and you will find the places 
+                            where you can have some fun 
+                            with your friends or even make
+                            friends there. Also, dont forget
+                            to see the events that are next to 
+                            you!"
+                        </p>
+                    </div>
+                </div>
             
-            <div class = "bottom-side-component">
-                <p class = 'component-info'>
-                    "Go and Socialize! Here you can
-                    chat with other students from different
-                    Universities. Don't hesitate to chat."
-                </p>
+                <div class = "bottom-component-main-section">
+                    <%= link_to fa_icon('comment 5x'), chatmessages_path%>
+                </div>
+                <div class = "bottom-component-main-section" style = "border: 2px solid #1fd660; ">
+                    <div class = "top-side-component">
+                        <p><b>L</b>obby <b>C</b>hat</p>
+                    </div>
+                    
+                    <div class = "bottom-side-component">
+                        <p class = 'component-info'>
+                            "Go and Socialize! Here you can
+                            chat with other students from different
+                            Universities. Don't hesitate to chat."
+                        </p>
+                    </div>
+                </div>
+                
             </div>
         </div>
-        
     </div>
 </div>

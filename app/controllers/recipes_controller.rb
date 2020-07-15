@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    # @recipes = Recipe.where(user_id: current_user.id)
+    @recipes = Recipe.where(user_id: 1)
   end
 
   # GET /recipes/new
@@ -21,7 +22,7 @@ class RecipesController < ApplicationController
         format.html { redirect_to myrecipes_path, notice: 'Recipe was successfully saved.' }
         format.json { render :show, status: :created, location: @recipe }
       else
-        format.html { render :new }
+        format.html { redirect_to  myrecipes_path, notice: @recipe.errors}
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end

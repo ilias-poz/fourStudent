@@ -74,7 +74,7 @@ $(document).ready(function(){
     })
 
     $('#recipe-btn').click(function(){
-        user_id = $("#user_id").text();
+        user_id = 1;
         $("#food-section-text-id").hide();
         var input = $('#search-recipe-input').val().toLowerCase();
         var req = {
@@ -205,7 +205,7 @@ function getDetailedRecipe(id, user_id){
         $("#recipe_user_id").val(user_id);
         $("#recipe_name").val(response.title);
         $("#recipe_sourceUrl").val(response.sourceUrl);
-        console.log(response);
+        console.log(user_id, response);
 
         
         var result = "<b>Ingredients: "+response.extendedIngredients.length+"</b>";

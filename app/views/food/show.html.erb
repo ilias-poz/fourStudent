@@ -1,72 +1,125 @@
-<div class = "food-section">
-    <div class = "recipes-list">
-        <div class = "recipe-search-section">
-            <button id = "recipe-btn" class = "recipe-search-btn round-btn"> Search <%= fa_icon('search')%></button>
-            <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Flour, Chicken, Oil, ...)">
-        </div>
-
-        <div class = "list-of-searched-recipes">
-            <ul id = "details-of-searched-recipes">
-            </ul>
-        </div>
-    </div>
-
-    <div class = "random-recipe">
-        <div class = "cuisine-search-section">
-            <div class = "cuisine-search-section-top">
-                <button id = "cuisine-btn" class = "cuisine-search-btn round-btn"> Generate Random </button>
-                <input type = "text" id = "cuisine-input" placeholder = "Search Cuisine">
+<div class = 'wrapper'>
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class = 'profile-userpic' >
+                    <img id="profilepic" src="<%= asset_path('gradient3.jpg')%>" alt="profilepic" height="128" width="128">
+                    <p style = "padding-top: 10px;">Dummy Dummy</p>
+                </div>
             </div>
-            <div class = "cuisine-search-section-bottom">
-                <!-- <label class = "form-label"> Cheap
-                    <input id = "recipe-cheap-checkbox" type="checkbox">
-                    <span class="checkmark"></span>
-                </label> -->
+            <ul class="list-unstyled components" style = "text-align: center !important;">
 
-                <label class = "form-label"> Vegeterian
-                    <input id = "recipe-vegetarian-checkbox" type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class = "form-label"> Dessert
-                    <input id = "recipe-dessert-checkbox" type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+                <li>
+                    <%= link_to food_path, class: 'btn sidebar-btn', style: 'background-color: #1853ab;', data: {turbolinks: false} do %>
+                        <%= fa_icon('shopping-cart 2x')%>
+                        <b>Food</b>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to entertainment_path, class: 'btn sidebar-btn', style: 'background-color: #1f4e94;', data: {turbolinks: false} do %>
+                        <%= fa_icon('child 2x')%>
+                        <b>Entertainment</b>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to support_path, class: 'btn sidebar-btn', style: 'background-color: #23477d;', data: {turbolinks: false} do %>
+                        <%= fa_icon('plus-square 2x')%>
+                        <b>Support</b>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to chatmessages_path, class: 'btn sidebar-btn', style: 'background-color: #233d63;', data: {turbolinks: false} do %>
+                        <%= fa_icon('comment 2x')%>
+                        <b>Lobby Chat</b>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to myrecipes_path, class: 'btn sidebar-btn', style: 'background-color: #1f2d41;', data: {turbolinks: false} do %>
+                        <%= fa_icon('heart 2x')%>
+                        <b>My Recipes</b>
+                    <% end %>
+                </li>
+                <li>
+                    <div id = "user_id" style = "visibility: hidden">
+                    </div>
+                </li>
+            </ul>
+            <button type="button" id="sidebarCollapse" class = "sidebar-button-rotate">
+                    <%= fa_icon('long-arrow-left 2x')%>
+            </button>
+        </nav>
+    <div id= 'main_content'>
+        <div class = "food-section">
+            <div class = "recipes-list">
+                <div class = "recipe-search-section">
+                    <button id = "recipe-btn" class = "recipe-search-btn round-btn"> Search <%= fa_icon('search')%></button>
+                    <input type = "text" id = "search-recipe-input" class = "recipe-input" placeholder = "Your Ingredients (e.g. Flour, Chicken, Oil, ...)">
+                </div>
+
+                <div class = "list-of-searched-recipes">
+                    <ul id = "details-of-searched-recipes">
+                    </ul>
+                </div>
+            </div>
+
+            <div class = "random-recipe">
+                <div class = "cuisine-search-section">
+                    <div class = "cuisine-search-section-top">
+                        <button id = "cuisine-btn" class = "cuisine-search-btn round-btn"> Generate Random </button>
+                        <input type = "text" id = "cuisine-input" placeholder = "Search Cuisine">
+                    </div>
+                    <div class = "cuisine-search-section-bottom">
+                        <!-- <label class = "form-label"> Cheap
+                            <input id = "recipe-cheap-checkbox" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label> -->
+
+                        <label class = "form-label"> Vegeterian
+                            <input id = "recipe-vegetarian-checkbox" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class = "form-label"> Dessert
+                            <input id = "recipe-dessert-checkbox" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class = "list-of-recipies">
+                    <ul id = "details-of-recipies">
+                    </ul>
+                </div>
+            </div>
+
+            <div id = "food-section-text-id" class = "food-section-text animated fadeIn delay-1">
+                <p> "Pick one method in order to get a recipe. You can either write your ingredients and get
+                    few recipes or you can just randomly generate based on the cuisine or preference"
+                </p>
+            </div>
+
+            
+
+            <!-- Rceipe Modal -->
+            <div class="modal fade" id="detailedRceipeModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="titleText"></h4>
+                </div>
+                <div class="modal-body" id="bodyText">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <%= render 'recipes/form', recipe: @recipe %>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+
+            </div>
             </div>
         </div>
-
-        <div class = "list-of-recipies">
-            <ul id = "details-of-recipies">
-            </ul>
-        </div>
-    </div>
-
-    <div id = "food-section-text-id" class = "food-section-text animated fadeIn delay-1">
-        <p> "Pick one method in order to get a recipe. You can either write your ingredients and get
-            few recipes or you can just randomly generate based on the cuisine or preference"
-        </p>
-    </div>
-
-    
-
-    <!-- Rceipe Modal -->
-    <div class="modal fade" id="detailedRceipeModal" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title" id="titleText"></h4>
-          </div>
-          <div class="modal-body" id="bodyText">
-            <p></p>
-          </div>
-          <div class="modal-footer">
-            <%= render 'recipes/form', recipe: @recipe %>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-
-      </div>
     </div>
 </div>
